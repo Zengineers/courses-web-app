@@ -2,16 +2,17 @@ package com.zengineers.courses.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityManager;
+
 import com.zengineers.courses.model.Course;
 
 public class CourseDAOImpl implements CourseDAO {
 
-	/* TODO which EntityManager do we want? */
-	//private EntityManager entityManager;
+	private EntityManager entityManager;
 	
-	public CourseDAOImpl(/*TODO EntityManager entityManager*/) {
+	public CourseDAOImpl(EntityManager entityManager) {
 		super();
-		// TODO Auto-generated constructor stub
+		this.entityManager = entityManager;
 	}
 	
 	@Override

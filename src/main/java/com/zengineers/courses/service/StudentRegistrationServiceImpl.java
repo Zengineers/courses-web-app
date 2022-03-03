@@ -1,20 +1,15 @@
-package com.zengineers.courses.dao;
+package com.zengineers.courses.service;
 
 import java.util.List;
 
-import javax.persistence.EntityManager;
-
 import com.zengineers.courses.model.StudentRegistration;
 
-public class StudentRegistrationDAOImpl implements StudentRegistrationDAO {
-	
-	private EntityManager entityManager;
-	
-	public StudentRegistrationDAOImpl(EntityManager entityManager) {
-		super();
-		this.entityManager = entityManager;
-	}
+public class StudentRegistrationServiceImpl implements StudentRegistrationService {
 
+	public StudentRegistrationServiceImpl() {
+		// TODO
+	}
+	
 	@Override
 	public List<StudentRegistration> findRegistrationsByCourseId(int courseId) {
 		// TODO Auto-generated method stub
