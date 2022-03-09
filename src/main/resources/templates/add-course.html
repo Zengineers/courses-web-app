@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+		<!-- Bootstrap 4 -->
+		<link rel="stylesheet" 
+		href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+		crossorigin="anonymous">
+		
+<meta charset="UTF-8">
+<title>Courses</title>
+</head>
+<body>
+<div class="container">
+Enter Course:
+<form th:action="@{/courses-list}" th:object="${courseForm}" method="POST"><br>
+
+	<input type="text" th:field="*{id}" placeholder="Enter course id" class="form-control col-4 mb-4" />
+	<input type="text" th:field="*{name}" placeholder="Enter course name" class="form-control col-4 mb-4" />
+	<input type="text" th:field="*{semester}" placeholder="Enter semester" class="form-control col-4 mb-4" />
+	<input type="text" th:field="*{syllabus}" placeholder="Enter syllabus" class="form-control col-4 mb-4" />
+	<input type="number" th:field="*{year}" placeholder="Enter year" class="form-control col-4 mb-4" />
+	<!-- <input type="number" th:field="*{instructorName}" placeholder="Enter instructor name" class="form-control col-4 mb-4" />  -->
+
+	<button class="btn btn-primary" type="submit">Submit</button>
+</form>
+<hr>
+		<a th:href="@{/home}">Back to Home</a>
+		
+</div>
+</body>
+</html>
