@@ -16,9 +16,14 @@ import com.zengineers.courses.service.statistics.StatisticStrategy;
 public class CourseServiceImpl implements CourseService {
 
 	@Autowired
-	@Qualifier("CourseDAOImpl")
+//	@Qualifier("CourseDAOImpl")
 	private CourseDAO courseDAO;
 	private List<StatisticStrategy> statCalculationStrategies;
+	
+	@Autowired
+	public CourseServiceImpl(CourseDAO courseDAO) {
+		this.courseDAO = courseDAO;
+	}
 	
 	public CourseServiceImpl() {
 		// TODO
@@ -44,9 +49,15 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
+	@Transactional
+	public List<Course> findAll() {
+		return courseDAO.findAll();
+	}
+	
+	@Override
+	@Transactional
 	public void delete(int courseId) {
-		// TODO Auto-generated method stub
-		
+		courseDAO.deleteById((long) courseId);
 	}
 
 	@Override

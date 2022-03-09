@@ -3,31 +3,40 @@ package com.zengineers.courses.controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.zengineers.courses.model.Course;
 import com.zengineers.courses.service.CourseService;
-import com.zengineers.courses.service.StudentRegistrationService;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
 @Controller
+@RequestMapping("/")
 public class CoursesController {
 	
 	@Autowired
 	private CourseService courseService;
-	private StudentRegistrationService studentRegistrationService;
+//	private StudentRegistrationService studentRegistrationService;
 
-	public CoursesController() {
-		// TODO
+	public CoursesController(CourseService courseService) {
+		this.courseService = courseService;
 	} 
 
+//	@GetMapping({"/home", "/"})
+//	public String hello(@RequestParam(value = "name", defaultValue = "World") String name, Model model) {
+//		model.addAttribute("name", name);
+//		model.addAttribute("courseForm", new Course());
+//		return "home";
+//	}
+	
 	@GetMapping({"/home", "/"})
-	public String hello(@RequestParam(value = "name", defaultValue = "World") String name, Model model) {
-		model.addAttribute("name", name);
-		model.addAttribute("courseForm", new Course());
+	public String listCourses(Model model) {
+		List<Course> courses = courseService.findAll();
+		model.addAttribute("courses", courses);
 		return "home";
 	}
 	
@@ -51,6 +60,12 @@ public class CoursesController {
 		printCourse(course);
 		courseService.save(course);
 		return "courses-list";
+	}
+	
+	@GetMapping("/delete")
+	public String delete(@RequestParam("courseId") int courseId) {
+		courseService.delete(courseId);
+		return "redirect:/home";
 	}
 	
 	private void printCourse(Course course) {
