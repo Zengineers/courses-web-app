@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -56,8 +55,8 @@ public class CourseServiceImpl implements CourseService {
 	
 	@Override
 	@Transactional
-	public void delete(int courseId) {
-		courseDAO.deleteById((long) courseId);
+	public void delete(Long courseId) {
+		courseDAO.deleteById(courseId);
 	}
 
 	@Override
@@ -68,9 +67,14 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
-	public void update(Course course) {
-		// TODO Auto-generated method stub
+	@Transactional
+	public Course update(Long courseId) {
+		Course course = courseDAO.findById(courseId).get();
 		
+		if (course != null ) {
+			return course;
+		}
+		throw new RuntimeException("Did not find course with id: " + courseId);
 	}
 
 }

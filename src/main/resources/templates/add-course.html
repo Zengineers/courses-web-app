@@ -9,14 +9,15 @@
 		crossorigin="anonymous">
 		
 <meta charset="UTF-8">
-<title>Courses</title>
+<title>Create new course</title>
 </head>
 <body>
 <div class="container">
 Enter Course:
-<form th:action="@{/courses-list}" th:object="${courseForm}" method="POST"><br>
+<form action="#" th:action="@{/save}" th:object="${courseForm}" method="POST"><br>
 
-	<input type="text" th:field="*{id}" placeholder="Enter course id" class="form-control col-4 mb-4" />
+	<input type="hidden" th:field="*{id}" />
+	<input type="text" th:field="*{code}" placeholder="Enter course code" class="form-control col-4 mb-4" />
 	<input type="text" th:field="*{name}" placeholder="Enter course name" class="form-control col-4 mb-4" />
 	<input type="text" th:field="*{semester}" placeholder="Enter semester" class="form-control col-4 mb-4" />
 	<input type="text" th:field="*{syllabus}" placeholder="Enter syllabus" class="form-control col-4 mb-4" />

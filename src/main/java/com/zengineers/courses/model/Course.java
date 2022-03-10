@@ -1,9 +1,9 @@
 package com.zengineers.courses.model;
 
-import java.util.List;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -19,8 +19,9 @@ import lombok.NoArgsConstructor;
 public class Course {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id")
-	private long id;
+	private Long id;
 	
 	@Column(name="code")
 	private String code;
@@ -39,7 +40,7 @@ public class Course {
 	
 	//	TODO
 	// associate string filed name with int instructor_id in db
-	private String instructorName;
+//	private String instructorId;
 	
 	// TODO Throws exception 
 	// field access strategy
@@ -47,11 +48,11 @@ public class Course {
 
 
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -61,14 +62,6 @@ public class Course {
 
 	public void setCode(String code) {
 		this.code = code;
-	}
-
-	public String getInstructorName() {
-		return instructorName;
-	}
-
-	public void setInstructorName(String instructorName) {
-		this.instructorName = instructorName;
 	}
 
 	public String getName() {
