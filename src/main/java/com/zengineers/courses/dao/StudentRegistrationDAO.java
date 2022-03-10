@@ -1,13 +1,11 @@
 package com.zengineers.courses.dao;
 
-import java.util.List;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import com.zengineers.courses.model.StudentRegistration;
 
-public interface StudentRegistrationDAO {
+@Repository
+public interface StudentRegistrationDAO extends JpaRepository<StudentRegistration, Long>{
 
-	public List<StudentRegistration> findRegistrationsByCourseId(int courseId);
-	public void delete(int studentId);
-	public void save(StudentRegistration studentRegistration);
-	public void update(StudentRegistration studentRegistration);
 }

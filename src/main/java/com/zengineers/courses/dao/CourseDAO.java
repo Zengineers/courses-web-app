@@ -7,9 +7,5 @@ import com.zengineers.courses.model.Course;
 
 @Repository
 public interface CourseDAO extends JpaRepository<Course, Long>{
- 	
-// 	public List<Course> findCourseByInstructorLogin(String login);
-// 	public void delete(int courseId);
-// 	public void save(Course course);
-// 	public void update(Course course);
+
 }

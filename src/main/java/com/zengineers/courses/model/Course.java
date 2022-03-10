@@ -39,11 +39,11 @@ public class Course {
 	private int year = 0;
 	
 	//	TODO
-	// associate string filed name with int instructor_id in db
+	// associate string filed name with int  instructor_id in db
 //	private String instructorId;
 	
 	// TODO Throws exception 
-	// field access strategy
+	// look into: field access strategy
 //	private List<StudentRegistration> studentRegistrations; 
 
 
@@ -95,22 +95,5 @@ public class Course {
 	public void setYear(int year) {
 		this.year = year;
 	}
-
-//	public String getInstructorName() {
-//		return instructorName;
-//	}
-//
-//	public void setInstructorName(String instructorName) {
-//		this.instructorName = instructorName;
-//	}
-//
-//	public List<StudentRegistration> getStudentRegistrations() {
-//		return studentRegistrations;
-//	}
-//
-//	public void setStudentRegistrations(List<StudentRegistration> studentRegistrations) {
-//		this.studentRegistrations = studentRegistrations;
-//	}
-	
 	
 }

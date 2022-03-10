@@ -62,7 +62,6 @@ public class CourseServiceImpl implements CourseService {
 	@Override
 	@Transactional
 	public void save(Course course) {
-		System.out.println("> CourseService");
 		courseDAO.save(course);
 	}
 
