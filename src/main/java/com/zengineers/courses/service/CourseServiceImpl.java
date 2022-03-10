@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,9 +15,14 @@ import com.zengineers.courses.service.statistics.StatisticStrategy;
 public class CourseServiceImpl implements CourseService {
 
 	@Autowired
-	@Qualifier("CourseDAOImpl")
+//	@Qualifier("CourseDAOImpl")
 	private CourseDAO courseDAO;
 	private List<StatisticStrategy> statCalculationStrategies;
+	
+	@Autowired
+	public CourseServiceImpl(CourseDAO courseDAO) {
+		this.courseDAO = courseDAO;
+	}
 	
 	public CourseServiceImpl() {
 		// TODO
@@ -44,22 +48,32 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	@Override
-	public void delete(int courseId) {
-		// TODO Auto-generated method stub
-		
+	@Transactional
+	public List<Course> findAll() {
+		return courseDAO.findAll();
+	}
+	
+	@Override
+	@Transactional
+	public void delete(Long courseId) {
+		courseDAO.deleteById(courseId);
 	}
 
 	@Override
 	@Transactional
 	public void save(Course course) {
-		System.out.println("> CourseService");
 		courseDAO.save(course);
 	}
 
 	@Override
-	public void update(Course course) {
-		// TODO Auto-generated method stub
+	@Transactional
+	public Course update(Long courseId) {
+		Course course = courseDAO.findById(courseId).get();
 		
+		if (course != null ) {
+			return course;
+		}
+		throw new RuntimeException("Did not find course with id: " + courseId);
 	}
 
 }

@@ -7,7 +7,8 @@ import com.zengineers.courses.model.Course;
 public interface CourseService {
 
 	public List<Course> findCourseByInstructorLogin(String login);
-	public void delete(int courseId);
+	public List<Course> findAll();
+	public void delete(Long courseId);
  	public void save(Course course);
- 	public void update(Course course);
+ 	public Course update(Long courseId);
 }
