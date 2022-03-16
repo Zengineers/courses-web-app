@@ -6,15 +6,15 @@ USE coursesapp;
 
 CREATE TABLE instructors (
 	id INT NOT NULL AUTO_INCREMENT,
-	NAME VARCHAR(255) NOT NULL,
+	username VARCHAR(255) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    mail VARCHAR(255),
+    mail VARCHAR(255) UNIQUE,
     PRIMARY KEY (id)    
-);
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 CREATE TABLE courses (
 	id INT NOT NULL AUTO_INCREMENT,
-	code VARCHAR(12) NOT NULL,
+	code VARCHAR(12) UNIQUE NOT NULL,
     name VARCHAR(255) NOT NULL,
     syllabus VARCHAR(255),
     year INT DEFAULT 0,
@@ -22,27 +22,29 @@ CREATE TABLE courses (
     instructor_id INT,
     PRIMARY KEY (id),
     FOREIGN KEY (instructor_id) REFERENCES instructors(id)
-);
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 CREATE TABLE students (
 	id INT NOT NULL,
-    name VARCHAR(255) NOT NULL,
+    full_name VARCHAR(255) NOT NULL,
     semester INT,
-    year_of_studies INT,
+    registration_year INT,
+    mail VARCHAR(255) UNIQUE,
     department VARCHAR(255),
-    mail VARCHAR(255),
     PRIMARY KEY (id)    
-);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 create table student_registrations (
 	student_id INT NOT NULL,
 	course_id INT NOT NULL,
+    project_grade DOUBLE DEFAULT NULL,
+    exam_grade DOUBLE DEFAULT NULL,
+    total_grade DOUBLE DEFAULT NULL,
     PRIMARY KEY (student_id, course_id),
     FOREIGN KEY (student_id) REFERENCES students(id),
     FOREIGN KEY (course_id) REFERENCES courses(id)
-);
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 -- Courses App Database Schema END
-
 
 
 -- Temp SQL Queries (should be deleted at some point)
@@ -51,14 +53,17 @@ SELECT * FROM courses;
 SELECT * FROM students;
 SELECT * FROM student_registrations;
 
-ALTER TABLE courses CHANGE COLUMN year year int DEFAULT 0;
+SET FOREIGN_KEY_CHECKS = 0;
+TRUNCATE instructors;
+TRUNCATE courses;
+TRUNCATE students;
+TRUNCATE student_registrations;
 
--- Add some dummy data 
-INSERT INTO courses 
-(code, name, syllabus, year, semester)
-VALUES
-('MYY100', 'CLASS 1', 'GGG', 5, 'WINTER'),
-('MYY102', 'CLASS 2', 'AAA', 5, 'WINTER'),
-('MYY103', 'CLASS 3', 'BBB', 5, 'SUMMER'),
-('MYY101', 'CLASS 4', 'XXX', 5, 'WINTER'),
-('MYY100', 'CLASS 5', 'WWW', 5, 'WINTER');
+
+DROP TABLE instructors;
+DROP TABLE courses;
+DROP TABLE students;
+DROP TABLE student_registrations;
+SET FOREIGN_KEY_CHECKS = 1;
+
+ALTER TABLE courses CHANGE COLUMN year year int DEFAULT 0;
