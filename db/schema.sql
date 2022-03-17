@@ -21,7 +21,8 @@ CREATE TABLE courses (
     semester VARCHAR(12),
     instructor_id INT,
     PRIMARY KEY (id),
-    FOREIGN KEY (instructor_id) REFERENCES instructors(id)
+    FOREIGN KEY (instructor_id) REFERENCES instructors(id) 
+    ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 CREATE TABLE students (
@@ -41,8 +42,10 @@ create table student_registrations (
     exam_grade DOUBLE DEFAULT NULL,
     total_grade DOUBLE DEFAULT NULL,
     PRIMARY KEY (student_id, course_id),
-    FOREIGN KEY (student_id) REFERENCES students(id),
+    FOREIGN KEY (student_id) REFERENCES students(id)
+    ON DELETE CASCADE ON UPDATE CASCADE,
     FOREIGN KEY (course_id) REFERENCES courses(id)
+    ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 -- Courses App Database Schema END
 
@@ -53,17 +56,20 @@ SELECT * FROM courses;
 SELECT * FROM students;
 SELECT * FROM student_registrations;
 
+
 SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE instructors;
 TRUNCATE courses;
 TRUNCATE students;
 TRUNCATE student_registrations;
-
+SET FOREIGN_KEY_CHECKS = 1;
 
 DROP TABLE instructors;
 DROP TABLE courses;
 DROP TABLE students;
 DROP TABLE student_registrations;
-SET FOREIGN_KEY_CHECKS = 1;
 
-ALTER TABLE courses CHANGE COLUMN year year int DEFAULT 0;
+
+
+DELETE FROM courses WHERE courses.id=1;
+DELETE FROM students WHERE students.id=2323;
