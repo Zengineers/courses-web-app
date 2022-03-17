@@ -2,8 +2,12 @@
 INSERT INTO instructors 
 (username, password, mail)
 VALUES
-('user123', 'pass123', 'jack@gmail.com'),
-('user1', 'pass1', 'max1@yahoo.gr');
+-- bcrypt online https://bcrypt-generator.com/
+('user123', '$2a$07$ma0A4JMxtia8wxOR4ljnxuVUP.2NB4.sz/ceUC0lhYeSkY0AqNO1i', 'jack@gmail.com'), 
+-- password "pass123" is externally encrypted to the above
+('user1', '$2a$07$aEZe19IR19jYGVrM87/jZu1hq6GQx44kVEJtE5Kz9MfY4cYNasjB6', 'max1@yahoo.gr');
+-- password "pass1" is externally encrypted to the above
+
 
 
 -- Populate courses

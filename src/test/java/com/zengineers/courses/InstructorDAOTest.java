@@ -31,7 +31,14 @@ public class InstructorDAOTest {
 		
 		assertThat(instructor.getId()).isEqualTo((long) 1);
 		assertThat(instructor.getUsername()).isEqualTo("user123");
-		assertThat(instructor.getPassword()).isEqualTo("pass123");
+		assertThat(instructor.getPassword()).isEqualTo("$2a$07$ma0A4JMxtia8wxOR4ljnxuVUP.2NB4.sz/ceUC0lhYeSkY0AqNO1i");
 		assertThat(instructor.getMail()).isEqualTo("jack@gmail.com");
+		
+		instructor = entityManager.find(Instructor.class, (long) 2);
+		
+		assertThat(instructor.getId()).isEqualTo((long) 2);
+		assertThat(instructor.getUsername()).isEqualTo("user1");
+		assertThat(instructor.getPassword()).isEqualTo("$2a$07$aEZe19IR19jYGVrM87/jZu1hq6GQx44kVEJtE5Kz9MfY4cYNasjB6");
+		assertThat(instructor.getMail()).isEqualTo("max1@yahoo.gr");
 	}
 }
