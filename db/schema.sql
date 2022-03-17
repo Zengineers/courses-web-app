@@ -5,39 +5,39 @@ CREATE DATABASE coursesapp;
 USE coursesapp;
 
 CREATE TABLE instructors (
-	id INT NOT NULL AUTO_INCREMENT,
-	username VARCHAR(255) UNIQUE NOT NULL,
+	id BIGINT NOT NULL AUTO_INCREMENT,
+	username VARCHAR(55) UNIQUE NOT NULL,
     password VARCHAR(255) NOT NULL,
-    mail VARCHAR(255) UNIQUE,
+    mail VARCHAR(55) UNIQUE,
     PRIMARY KEY (id)    
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 CREATE TABLE courses (
-	id INT NOT NULL AUTO_INCREMENT,
+	id BIGINT NOT NULL AUTO_INCREMENT,
 	code VARCHAR(12) UNIQUE NOT NULL,
-    name VARCHAR(255) NOT NULL,
-    syllabus VARCHAR(255),
+    name VARCHAR(55) NOT NULL,
+    syllabus VARCHAR(500),
     year INT DEFAULT 0,
     semester VARCHAR(12),
-    instructor_id INT,
+    instructor_id BIGINT,
     PRIMARY KEY (id),
     FOREIGN KEY (instructor_id) REFERENCES instructors(id) 
     ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 CREATE TABLE students (
-	id INT NOT NULL,
-    full_name VARCHAR(255) NOT NULL,
+	id BIGINT NOT NULL,
+    full_name VARCHAR(55) NOT NULL,
     semester INT,
     registration_year INT,
-    mail VARCHAR(255) UNIQUE,
-    department VARCHAR(255),
+    mail VARCHAR(55) UNIQUE,
+    department VARCHAR(55),
     PRIMARY KEY (id)    
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 create table student_registrations (
-	student_id INT NOT NULL,
-	course_id INT NOT NULL,
+	student_id BIGINT NOT NULL,
+	course_id BIGINT NOT NULL,
     project_grade DOUBLE DEFAULT NULL,
     exam_grade DOUBLE DEFAULT NULL,
     total_grade DOUBLE DEFAULT NULL,
