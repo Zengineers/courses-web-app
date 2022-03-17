@@ -15,7 +15,7 @@ import com.zengineers.courses.service.CourseService;
 import com.zengineers.courses.service.StudentRegistrationService;
 
 @Controller
-@RequestMapping("/")
+//@RequestMapping("/")
 public class CoursesController {
 	
 	private CourseService courseService;
@@ -57,4 +57,9 @@ public class CoursesController {
 		return "add-course";
 	}
 
+	@GetMapping("/login")
+	public String showLoginPage() {
+		return "login";
+	}
+	
 }
