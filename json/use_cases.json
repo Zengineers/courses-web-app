@@ -1,0 +1,29 @@
+{
+	"Use Case: Instructor Login": 
+    {
+    	"ID": "UC1",
+  		"Actor(s)": "Instructor",
+  		"Description": "This use case describes how an instructor logs into the Courses Management Application System.",
+		"Pre-cond.": [
+			"1. Application successfully initialized and running on respective host.",
+			"2. Database initialized and running on respective host.",
+			"3. Application successfully connected to database."
+		],
+  		"Main Flow": [
+  			"1. The use case starts when an unauthenticated instructor attempts to access any of the applications' pages that require authentication, including the login page itself.",
+  			" \t 1.1 If the instructor requests a page other than the login page.",
+  			" \t 1.2 The application redirects to the login page.",
+  			"2. The instructor enters his/her username and password and clicks the \"Sign in as Instructor\" button.",
+  			"3. The application attempts to authenticate the instructor's credentials (username and password) with the respective credentials in the database.",
+  			"4. The application redirects to the courses page."
+  		],
+  		"Alternative Flow": [
+  			"1. The alternative flow begins after step 3.",
+  			"2. The application determines the given instructor's credentials as invalid.",
+  			"3. The application displays a \"Bad Credentials\" message"
+		],
+  		"Post-cond.": [
+  			"The instructor is authenticated and can access any of the applications' pages."
+  		]
+	}
+}
