@@ -19,9 +19,6 @@ import com.zengineers.courses.model.Instructor;
 @AutoConfigureTestDatabase(replace = Replace.NONE)
 @Rollback(false)
 public class InstructorDAOTest {
-
-	@Autowired
-	private TestEntityManager entityManager;
 	
 	@Autowired
 	private InstructorDAO instructorDAO;
