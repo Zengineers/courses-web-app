@@ -67,5 +67,4 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     			.permitAll();
     }
     
-    
 }

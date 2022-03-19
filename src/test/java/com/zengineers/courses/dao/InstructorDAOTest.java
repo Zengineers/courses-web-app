@@ -1,8 +1,10 @@
-package com.zengineers.courses;
+package com.zengineers.courses.dao;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace;
@@ -25,20 +27,16 @@ public class InstructorDAOTest {
 	private InstructorDAO instructorDAO;
 	
 	
-	@Test
-	public void testInstructorDAO() {		
-		Instructor instructor = entityManager.find(Instructor.class, (long) 1);
+	@ParameterizedTest
+	@CsvSource(value = {"1-user123-$2a$07$ma0A4JMxtia8wxOR4ljnxuVUP.2NB4.sz/ceUC0lhYeSkY0AqNO1i-jack@gmail.com",
+										"2-user1-$2a$07$aEZe19IR19jYGVrM87/jZu1hq6GQx44kVEJtE5Kz9MfY4cYNasjB6-max1@yahoo.gr-stable"}, 
+							delimiter = '-')
+	public void testInstructorDAO(String id, String username, String password, String mail) {		
+		Instructor instructor = instructorDAO.findByUsername(username);
 		
-		assertThat(instructor.getId()).isEqualTo((long) 1);
-		assertThat(instructor.getUsername()).isEqualTo("user123");
-		assertThat(instructor.getPassword()).isEqualTo("$2a$07$ma0A4JMxtia8wxOR4ljnxuVUP.2NB4.sz/ceUC0lhYeSkY0AqNO1i");
-		assertThat(instructor.getMail()).isEqualTo("jack@gmail.com");
-		
-		instructor = entityManager.find(Instructor.class, (long) 2);
-		
-		assertThat(instructor.getId()).isEqualTo((long) 2);
-		assertThat(instructor.getUsername()).isEqualTo("user1");
-		assertThat(instructor.getPassword()).isEqualTo("$2a$07$aEZe19IR19jYGVrM87/jZu1hq6GQx44kVEJtE5Kz9MfY4cYNasjB6");
-		assertThat(instructor.getMail()).isEqualTo("max1@yahoo.gr");
+		assertThat(instructor.getId()).isEqualTo(Long.parseLong(id));
+		assertThat(instructor.getUsername()).isEqualTo(username);
+		assertThat(instructor.getPassword()).isEqualTo(password);
+		assertThat(instructor.getMail()).isEqualTo(mail);
 	}
 }

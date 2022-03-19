@@ -56,10 +56,5 @@ public class CoursesController {
 		model.addAttribute("courseForm", course);
 		return "add-course";
 	}
-
-	@GetMapping("/login")
-	public String showLoginPage() {
-		return "login";
-	}
 	
 }
