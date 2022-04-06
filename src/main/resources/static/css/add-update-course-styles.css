@@ -1,0 +1,74 @@
+body {
+	background-color: #F2F2F2;
+	background-attachment: fixed;
+	background-size: 100% auto;
+	object-fit: cover;
+}
+.mainFrame {
+	border-radius: 8px;
+	margin-top:75px;
+	padding-top:3.8%;
+	padding-bottom:3%;;
+	width: 500px;
+}
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.rufina {
+	font-family: Rufina;
+	margin: auto;
+	text-align: center;
+	color: #353434;
+}
+a {
+	text-align: center;
+}
+.hr {
+	width: 88%;
+	height: 0.025em;
+	margin-top:5px;
+}
+.inputField {
+	padding:12px;
+	border: 1px solid #AAAAAA; 
+	border-radius: 5px;
+	margin-top: 5px;
+	margin-bottom: 12px;
+	width: 80%;
+	font-family: Open Sans;
+}
+.primaryButton {
+	background-color: #3F905C;
+	border-radius: 5px;
+	border: 1px solid #3F905C;
+	color: #FFFFFF;
+	font-family: Open Sans;
+	letter-spacing: 1px;
+	font-size: 20px;
+	padding-left: 14%;
+	padding-right: 14%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	margin-top: 10%;
+	cursor: pointer;
+	transition: 0.3s;
+	transition-duration: 0.4s;
+}
+.primaryButton:hover{
+	background-color: #4db071;
+	border: 1px solid #4db071;
+}
+.back {
+	font-size: 18px;
+	color: #353434;
+	text-decoration: underline;
+}
+.zengineersSvg {
+	marginTop: -100px;
+	margin-left: 10%;
+}
+form {
+	margin-bottom: -20%;
+}
