@@ -2,6 +2,9 @@ package com.zengineers.courses.controller;
 
 import java.util.List;
 
+import org.springframework.security.core.context.SecurityContext;
+import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -10,51 +13,61 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.zengineers.courses.config.InstructorAuthentication;
 import com.zengineers.courses.model.Course;
+import com.zengineers.courses.model.Instructor;
 import com.zengineers.courses.service.CourseService;
 import com.zengineers.courses.service.StudentRegistrationService;
 
 @Controller
-//@RequestMapping("/")
+@RequestMapping("/")
 public class CoursesController {
 	
 	private CourseService courseService;
 	private StudentRegistrationService studentRegistrationService;
+	private Instructor authenticatedInstructor;
 
 	public CoursesController(CourseService courseService) {
 		this.courseService = courseService;
 	} 
 	
-	@GetMapping({"/home", "/"})
-	public String listCourses(Model model) {
-		List<Course> courses = courseService.findAll();
-		model.addAttribute("courses", courses);
-		return "home";
+	private Instructor getAuthenticatedInstructor() {
+		SecurityContext securityContext = SecurityContextHolder.getContext();
+		InstructorAuthentication auth = (InstructorAuthentication) securityContext.getAuthentication().getPrincipal();
+		return auth.getInstructor();
 	}
 
-	@GetMapping("/addCourse")
+	@GetMapping({"/courses", "/"})
+	public String listCourses(Model model) {		
+		authenticatedInstructor = getAuthenticatedInstructor();
+		List<Course> courses = courseService.findCoursesByInstructorId(authenticatedInstructor.getId());
+		model.addAttribute("courses", courses);
+		return "courses";
+	}
+
+	@GetMapping("/courses/add")
 	public String addCourse(Model model) {
 		model.addAttribute("courseForm", new Course());
-		return "add-course";
+		return "add-update-course";
 	}
 	
-	@PostMapping("/save")
+	@PostMapping("/courses/save")
 	public String saveCourse(@ModelAttribute("courseForm") Course course) {
 		courseService.save(course);
-		return "redirect:/home";
+		return "redirect:/courses";
 	}
 	
-	@GetMapping("/delete")
+	@GetMapping("/courses/delete")
 	public String delete(@RequestParam("courseId") Long courseId) {
 		courseService.delete(courseId);
-		return "redirect:/home";
+		return "redirect:/courses";
 	}
 	
-	@GetMapping("/update")
+	@GetMapping("/courses/update")
 	public String updateCourse(@RequestParam("courseId") Long courseId, Model model) {
 		Course course = courseService.update(courseId);
 		model.addAttribute("courseForm", course);
-		return "add-course";
+		return "add-update-course";
 	}
 	
 }

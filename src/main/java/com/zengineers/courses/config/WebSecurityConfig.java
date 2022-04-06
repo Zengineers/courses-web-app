@@ -52,7 +52,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
     	// These pages require authentication to access
-    	String[] antPatterns = {"/home", "/", "/addCourse"};
+    	String[] antPatterns = {"/courses", "/", "/courses/add"};
     	
     	http.authorizeRequests()
     		.antMatchers(antPatterns).authenticated()  
@@ -63,7 +63,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     			.loginPage("/login") 
     			.usernameParameter("username")
     			// Successful login redirects to the below page
-    			.defaultSuccessUrl("/home")
+    			.defaultSuccessUrl("/courses")
     			.permitAll();
     }
     
