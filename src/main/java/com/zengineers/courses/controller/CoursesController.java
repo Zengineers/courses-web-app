@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,7 +24,6 @@ public class CoursesController {
 	
 	private CourseService courseService;
 	private StudentRegistrationService studentRegistrationService;
-	private Instructor authenticatedInstructor;
 
 	public CoursesController(CourseService courseService) {
 		this.courseService = courseService;
@@ -39,8 +37,7 @@ public class CoursesController {
 
 	@GetMapping({"/courses", "/"})
 	public String listCourses(Model model) {		
-		authenticatedInstructor = getAuthenticatedInstructor();
-		List<Course> courses = courseService.findCoursesByInstructorId(authenticatedInstructor.getId());
+		List<Course> courses = courseService.findCoursesByInstructorId(getAuthenticatedInstructor().getId());
 		model.addAttribute("courses", courses);
 		return "courses";
 	}
@@ -53,6 +50,7 @@ public class CoursesController {
 	
 	@PostMapping("/courses/save")
 	public String saveCourse(@ModelAttribute("courseForm") Course course) {
+		course.setInstructor(getAuthenticatedInstructor());
 		courseService.save(course);
 		return "redirect:/courses";
 	}

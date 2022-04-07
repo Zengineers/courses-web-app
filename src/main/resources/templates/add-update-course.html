@@ -34,8 +34,7 @@
 		<input type="text" th:field="*{semester}" placeholder="Enter semester" class="form-control center inputField" />
 		<input type="text" th:field="*{syllabus}" placeholder="Enter syllabus" class="form-control center inputField" />
 		<input type="number" th:field="*{year}" placeholder="Enter year" class="form-control center inputField" />
-		<!-- Causes exception -->
-		<!-- <input type="number" th:field="*{instructor.id}" placeholder="Enter instructor id" class="form-control center inputField"/> -->
+		<input type="hidden" th:field="*{instructor.id}" />
 		<button class="btn btn-primary primaryButton center" type="submit" >Submit</button>
 	</form>
 	

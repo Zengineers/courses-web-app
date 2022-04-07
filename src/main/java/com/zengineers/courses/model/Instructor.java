@@ -1,10 +1,13 @@
 package com.zengineers.courses.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -32,6 +35,8 @@ public class Instructor {
 	@Column(name="mail", nullable = true, unique = true, length = 55)
     private String mail;
 
+	@OneToMany(mappedBy="instructor")
+	private List<Course> courses;
 	
 	public Long getId() {
 		return id;
