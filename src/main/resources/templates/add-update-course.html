@@ -35,11 +35,12 @@
 		<input type="text" th:field="*{syllabus}" placeholder="Enter syllabus" class="form-control center inputField" />
 		<input type="number" th:field="*{year}" placeholder="Enter year" class="form-control center inputField" />
 		<input type="hidden" th:field="*{instructor.id}" />
+		<div th:if="*{codeExistsInDatabase}" >
+	    	<p class="text-danger errorMessage">Course code already exists</p>
+		</div>
 		<button class="btn btn-primary primaryButton center" type="submit" >Submit</button>
 	</form>
 	
-	
-		
 	</div>
 	<img th:src="@{/svg/zengineer_2.svg}" alt="SVG should be here..." class="zengineersSvg"/>
 	<hr class="hr">

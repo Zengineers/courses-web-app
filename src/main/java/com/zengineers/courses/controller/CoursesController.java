@@ -50,9 +50,15 @@ public class CoursesController {
 	
 	@PostMapping("/courses/save")
 	public String saveCourse(@ModelAttribute("courseForm") Course course) {
-		course.setInstructor(getAuthenticatedInstructor());
-		courseService.save(course);
-		return "redirect:/courses";
+		try {
+			course.setInstructor(getAuthenticatedInstructor());
+			courseService.save(course);
+			return "redirect:/courses";
+		} 
+		catch (Exception e) {
+			course.setCodeExistsInDatabase(true);
+			return "add-update-course";
+		}
 	}
 	
 	@GetMapping("/courses/delete")
