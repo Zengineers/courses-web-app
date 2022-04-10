@@ -1,16 +1,15 @@
 body {
-	background-image: url("../img/desk.jpg");
+	background-color: #F2F2F2;
 	background-attachment: fixed;
+	background-size: 100% auto;
+	object-fit: cover;
 }
 .mainFrame {
-	border: 2px solid #353434;
 	border-radius: 8px;
 	margin-top:75px;
 	padding-top:3.8%;
 	padding-bottom:3%;;
-	background-color: #F2F2F2;
-	width: 420px;
-	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	width: 500px;
 }
 .center {
 	display: block;
@@ -23,29 +22,17 @@ body {
 	text-align: center;
 	color: #353434;
 }
-.header {
-	font-weight: bold;
-	letter-spacing: 3px;
-	font-size: 30px;
+a {
+	text-align: center;
 }
 .hr {
 	width: 88%;
 	height: 0.025em;
-	background: #353434;
 	margin-top:5px;
-}
-.loginSvg {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	padding-top: 65px;
-	padding-bottom: 35px;
-	width:65%;
-	height:65%;
 }
 .inputField {
 	padding:12px;
-	border: 1px solid #333333; 
+	border: 1px solid #AAAAAA; 
 	border-radius: 5px;
 	margin-top: 5px;
 	margin-bottom: 12px;
@@ -56,27 +43,36 @@ body {
 	background-color: #3F905C;
 	border-radius: 5px;
 	border: 1px solid #3F905C;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	padding-left: 25px;
-	padding-right: 25px;
-	margin-top: 35px;
 	color: #FFFFFF;
 	font-family: Open Sans;
 	letter-spacing: 1px;
 	font-size: 20px;
+	padding-left: 14%;
+	padding-right: 14%;
+	padding-top: 2%;
+	padding-bottom: 2%;
+	margin-top: 10%;
 	cursor: pointer;
 	transition: 0.3s;
 	transition-duration: 0.4s;
 }
 .primaryButton:hover{
-	background-color: #E87746;
-	border: 1px solid #E87746;
+	background-color: #4db071;
+	border: 1px solid #4db071;
+}
+.back {
+	font-size: 18px;
 	color: #353434;
-	letter-spacing: 0.01em;
+	text-decoration: underline;
+}
+.zengineersSvg {
+	marginTop: -100px;
+	margin-left: 10%;
+}
+form {
+	margin-bottom: -20%;
 }
 .errorMessage {
 	text-align: center;
-	margin-top: 15px;
+	margin-bottom: -4%;
 }
-

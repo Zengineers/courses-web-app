@@ -20,10 +20,130 @@
   		"Alternative Flow": [
   			"1. The alternative flow begins after step 3.",
   			"2. The application determines the given instructor's credentials as invalid.",
-  			"3. The application displays a \"Bad Credentials\" message"
+  			"3. The application displays a \"Bad Credentials\" message."
 		],
   		"Post-cond.": [
   			"The instructor is authenticated and can access any of the applications' pages."
   		]
+	},
+	
+	"Use Case: Instructor Browse Courses":
+	{
+		"ID": "UC2",
+		"Actor(s)": "Instructor",
+		"Description": "This use case describes how an instructor browses the list of courses he is teaching.",
+		"Pre-cond.": [
+			"1. Application successfully initialized and running on respective host.",
+			"2. Database initialized and running on respective host.",
+			"3. Application successfully connected to database.",
+			"4. Instructor successfully authenticated."
+		],
+		"Main Flow": [
+			"1. The use case starts when an authenticated instructor navigates or is redirected to the browse courses page.",
+			"2. The application fetches the courses which correspond to the authenticated instructor from the database.",
+			"3. The application displays the fetched courses on the courses page."
+		],
+		"Post-cond.": [
+  			" - "
+  		]
+	},
+	
+	"Use Case: Instructor Add Course":
+	{
+		"ID": "UC3",
+		"Actor(s)": "Instructor",
+		"Description": "This use case describes how an instructor adds a course he is teaching to the list of courses.",
+		"Pre-cond.": [
+			"1. Application successfully initialized and running on respective host.",
+			"2. Database initialized and running on respective host.",
+			"3. Application successfully connected to database.",
+			"4. Instructor successfully authenticated.",
+			"5. Application displays the browse courses page."
+		],
+		"Main Flow": [
+			"1. The use case starts when an authenticated instructor clicks the \"Add Course\" button (on the browse courses page).",
+			"2. The application redirects to the add course page.",
+			"3. The instructor enters the course information (code, name, semester, syllabus, year).",
+			"4. The instructor clicks the \"Submit\" button.",
+			"5. The application inserts the new course to the database.",
+			"6. The application redirects to the browse courses page."
+		],
+		"Alternative Flow 1": [
+			"1. The alternative flow begins after step 2.",
+			"2. The instructor may click on the \"Back to Courses\" button at any time.",
+			"3 The application redirects to the browse courses page."
+		],
+		"Alternative Flow 2": [
+			"1. The alternative flow begins after step 4.",
+			"2. The application determines that the course code entered by the instructor already exists in the database.",
+			"3. The application displays a \"Course code already exists\" message."
+		],
+		"Post-cond.": [
+  			"The new course is successfully added and displayed along with the rest of the instructor's courses on the browse courses page'."
+  		]
+	},
+	
+	"Use Case: Instructor Delete Course": 
+	{
+		"ID": "UC4",
+		"Actor(s)": "Instructor",
+		"Description": "This use case describes how an instructor deletes a course from the list of courses.",
+		"Pre-cond.": [
+			"1. Application successfully initialized and running on respective host.",
+			"2. Database initialized and running on respective host.",
+			"3. Application successfully connected to database.",
+			"4. Instructor successfully authenticated.",
+			"5. Application displays the browse courses page."
+		],
+		"Main Flow": [
+			"1. The use case starts when an authenticated instructor clicks the \"Delete\" button for one of the displayed courses (on the browse courses page).",
+			"2. The application displays a warning prompt asking \"Are you sure you want to delete this course?\".",
+			" \t 2.1 If the instructor clicks \"OK\" on the warning prompt.",
+			" \t 2.2 The application deletes the course from the database."
+		],
+		"Alternative Flow": [
+			"1. The alternative flow begins after step 2.",
+			" \t 2.1 If the instructor clicks \"Cancel\" on the warning prompt.",
+			" \t 2.2 The application does not delete the course from the database."
+		],
+		"Post-cond.": [
+  			"The course is successfully deleted from the database and is no longer displayed along with the rest of the instructor's courses on the browse courses page'."
+  		]
+	},
+	
+	"Use Case: Instructor Update Course":
+	{
+		"ID": "UC5",
+		"Actor(s)": "Instructor",
+		"Description": "This use case describes how an instructor updates a course he is teaching from the list of courses.",
+		"Pre-cond.": [
+			"1. Application successfully initialized and running on respective host.",
+			"2. Database initialized and running on respective host.",
+			"3. Application successfully connected to database.",
+			"4. Instructor successfully authenticated.",
+			"5. Application displays the browse courses page."
+		],
+		"Main Flow": [
+			"1. The use case starts when an authenticated instructor clicks the \"Update\" button for one of the displayed courses (on the browse courses page).",
+			"2. The application redirects to the update course page.",
+			"3. The instructor enters the course information (code, name, semester, syllabus, year) he wishes to update.",
+			"4. The instructor clicks the \"Submit\" button.",
+			"5. The application updates the course information on the database.",
+			"6. The application redirects to the browse courses page."
+		],
+		"Alternative Flow 1": [
+			"1. The alternative flow begins after step 2.",
+			"2. The instructor may click on the \"Back to Courses\" button at any time.",
+			"3 The application redirects to the browse courses page."
+		],
+		"Alternative Flow 2": [
+			"1. The alternative flow begins after step 4.",
+			"2. The application determines that the course code entered by the instructor already exists in the database on a different course than the one being updated.",
+			"3. The application displays a \"Course code already exists\" message."
+		],
+		"Post-cond.": [
+  			"The course information is successfully updated and displayed along with the rest of the instructor's courses on the browse courses page'."
+  		]
 	}
+	
 }

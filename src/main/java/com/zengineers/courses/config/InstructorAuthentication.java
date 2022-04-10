@@ -31,6 +31,10 @@ public class InstructorAuthentication implements UserDetails {
 		return instructor.getUsername();
 	}
 
+	public Instructor getInstructor() {
+		return instructor;
+	}
+	
 	@Override
 	public boolean isAccountNonExpired() {
 		return true;

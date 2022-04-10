@@ -1,11 +1,15 @@
 package com.zengineers.courses.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -38,16 +42,17 @@ public class Course {
 	@Column(name="year")
 	private int year = 0;
 	
-	//	TODO
-	// associate string filed name with int  instructor_id in db
-//	private String instructorId;
-	
+	@ManyToOne(cascade=CascadeType.MERGE)
+	@JoinColumn(name="instructor_id", referencedColumnName = "id")
+	private Instructor instructor;
+
 	// TODO Throws exception 
 	// look into: field access strategy
 //	private List<StudentRegistration> studentRegistrations; 
 
-
-
+	@Transient
+	private boolean codeExistsInDatabase = false;
+	
 	public Long getId() {
 		return id;
 	}
@@ -94,6 +99,22 @@ public class Course {
 
 	public void setYear(int year) {
 		this.year = year;
+	}
+
+	public Instructor getInstructor() {
+		return instructor;
+	}
+
+	public void setInstructor(Instructor instructor) {
+		this.instructor = instructor;
+	}
+
+	public boolean isCodeExistsInDatabase() {
+		return codeExistsInDatabase;
+	}
+
+	public void setCodeExistsInDatabase(boolean codeExistsInDatabase) {
+		this.codeExistsInDatabase = codeExistsInDatabase;
 	}
 	
 }

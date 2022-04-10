@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	
+	<title>Courses</title>
+	
+	<!-- Bootstrap 4 -->
+	<link rel="stylesheet" 
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+	crossorigin="anonymous">
+	
+	<!-- Let the page adapt to client device -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="UTF-8">
+	
+	<!-- Add header icon link -->
+	<link rel = "icon" 
+	href ="https://avanti.org.uk/avantihouse-secondary/wp-content/uploads/sites/10/revslider/fullwidth_avada_video_slider1/AST-Crest-Small.png"  
+	type = "image/x-icon">
+	  
+	<link href="/css/courses-styles.css" rel="stylesheet">
+	
+</head>
+
+<body>
+	<div class="container">
+	<h2 class="rufina header">Courses</h2>
+	<hr class="hr">
+			<a th:href="@{/courses/add}" class="btn btn-primary mb-2 primaryButton">Add Course</a>
+			
+			<img th:src="@{/svg/zengineer_1.svg}" alt="SVG should be here..." class="zengineersSvg"/>
+			
+			<table class="table table-bordered table-stripe" id="course-table">
+				<thead>
+					<tr>
+						<!-- <th>ID</th> -->
+						<th>Code</th>
+						<th>Name</th>
+						<th>Syllabus</th>
+						<th>Year</th>
+						<th>Semester</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="course: ${courses}">
+						<!-- <td th:text="${course?.id}"></td> -->
+						<td th:text="${course?.code}"></td>
+						<td th:text="${course?.name}"></td>
+						<td th:text="${course?.syllabus}"></td>
+						<td th:text="${course?.year}"></td>
+						<td th:text="${course?.semester}"></td>
+						<td>
+						
+							<div class="row">
+								<div class="column">
+								<a th:href="@{/courses/update(courseId=${course.id})}" class="btn" data-tooltip="Update" >
+									<img th:src="@{/svg/update-btn.svg}" alt="SVG should be here..." class="img-btn"  />
+								</a>
+								</div>
+							
+								<div class="column">
+								<!-- TODO link to student registrations list -->
+								<a th:href="@{/courses}" class="btn" data-tooltip="List students">
+									 <img th:src="@{/svg/list-btn.svg}" alt="SVG should be here..."  class="img-btn"/>
+								</a>  
+								</div>
+							
+								<div class="column">
+								<a th:href="@{/courses/delete(courseId=${course.id})}" class="btn" data-tooltip="Delete"
+									onclick="if (!(confirm('Are you sure you want to delete this course?'))) return false">
+									 <img th:src="@{/svg/delete-btn.svg}" alt="SVG should be here..."  class="img-btn"/>
+								</a>  
+								</div>
+							</div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+
+	</div>
+</body>
+</html>

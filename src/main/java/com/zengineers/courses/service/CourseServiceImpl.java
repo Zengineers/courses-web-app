@@ -42,9 +42,8 @@ public class CourseServiceImpl implements CourseService {
 	}
 	
 	@Override
-	public List<Course> findCourseByInstructorLogin(String login) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Course> findCoursesByInstructorId(Long instructorId) {
+		return courseDAO.findCoursesByInstructorId(instructorId);
 	}
 
 	@Override
