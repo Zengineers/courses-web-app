@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+
+	<title>Add Student</title>
+	
+	<!-- Bootstrap 4 -->
+	<link rel="stylesheet" 
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+	crossorigin="anonymous">
+	
+	<!-- Let the page adapt to client device -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="UTF-8">
+	
+	<!-- Add header icon link -->
+	<link rel = "icon" 
+	href ="https://avanti.org.uk/avantihouse-secondary/wp-content/uploads/sites/10/revslider/fullwidth_avada_video_slider1/AST-Crest-Small.png"  
+	type = "image/x-icon">
+	  
+	<link href="/css/add-update-course-styles.css" rel="stylesheet">
+
+</head>
+<body>
+	<div class="center mainFrame">
+	<h2 class="rufina header">Enter Student Details</h2>
+	<hr class="hr">
+
+	<form action="#" th:action="@{/student-registrations/save}" th:object="${studentRegistrationForm}" method="POST"><br>
+ 		<input type="text" th:field="*{id}" placeholder="ID" class="form-control center inputField" />
+		<input type="text" th:field="*{fullName}" placeholder="Full Name" class="form-control center inputField" />
+		<input type="number" th:field="*{semester}" placeholder="Semester" class="form-control center inputField" />
+		<input type="number" th:field="*{registrationYear}" placeholder="Registration Year" class="form-control center inputField" />
+		<input type="text" th:field="*{mail}" placeholder="Mail" class="form-control center inputField" />
+		<input type="text" th:field="*{department}" placeholder="Department" class="form-control center inputField" />
+		<button class="btn btn-primary primaryButton center" type="submit" >Submit</button>
+	</form>
+	
+	</div>
+	<img th:src="@{/svg/zengineer_2.svg}" alt="SVG should be here..." class="zengineersSvg"/>
+	<hr class="hr">
+	<a th:href="@{/student-registrations(courseId=${courseId})}" class="center back rufina">Back to Student Registrations</a>
+</body>
+</html>

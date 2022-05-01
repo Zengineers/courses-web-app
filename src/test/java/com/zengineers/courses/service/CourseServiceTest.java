@@ -106,7 +106,7 @@ public class CourseServiceTest {
 							delimiter = '-')
 	@Transactional
 	void testUpdate(String id, String code, String name, String syllabus, String year, String semester, String instructorId) {
-		Course updatedCourse = courseService.update(Long.parseLong(id));
+		Course updatedCourse = courseService.findById(Long.parseLong(id));
 		
 		Assertions.assertNotNull(updatedCourse);
 		assertThat(updatedCourse.getId()).isEqualTo(Long.parseLong(id));

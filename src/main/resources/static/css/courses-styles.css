@@ -75,6 +75,16 @@ td {
   flex: 33.33%;
   padding: 5px;
 }
+.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.back {
+	font-size: 18px;
+	color: #353434;
+	text-decoration: underline;
+}
 /* Add this attribute to the element that needs a tooltip */
 [data-tooltip] {
   position: relative;
