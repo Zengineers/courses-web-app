@@ -73,3 +73,14 @@ DROP TABLE student_registrations;
 
 DELETE FROM courses WHERE courses.id=1;
 DELETE FROM students WHERE students.id=2323;
+
+SELECT 
+students.id, 
+students.full_name,
+students.semester,
+students.registration_year,
+students.mail,
+students.department
+FROM student_registrations, students
+WHERE student_registrations.course_id = 1
+AND student_registrations.student_id = students.id;

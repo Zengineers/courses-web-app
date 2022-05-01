@@ -2,6 +2,7 @@ package com.zengineers.courses.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
@@ -15,17 +16,18 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class Student {
 	
+	@Id
 	@Column(name="id", nullable = false)
 	private Long id;
 	
 	@Column(name="full_name", nullable = false, unique = false, length = 55)
-	private String full_name;
+	private String fullName;
 	
 	@Column(name="semester")
-	private int semester;//st course to exoume string
+	private int semester;
 	
 	@Column(name="registration_year")
-	private int registration_year;
+	private int registrationYear;
 	
 	@Column(name="mail", nullable = true, unique = true, length = 55)
     private String mail;
@@ -41,12 +43,12 @@ public class Student {
 		this.id = id;
 	}
 
-	public String getFull_name() {
-		return full_name;
+	public String getFullName() {
+		return fullName;
 	}
 
-	public void setFull_name(String full_name) {
-		this.full_name = full_name;
+	public void setFullName(String full_name) {
+		this.fullName = full_name;
 	}
 
 	public int getSemester() {
@@ -57,12 +59,12 @@ public class Student {
 		this.semester = semester;
 	}
 
-	public int getRegistration_year() {
-		return registration_year;
+	public int getRegistrationYear() {
+		return registrationYear;
 	}
 
-	public void setRegistration_year(int registration_year) {
-		this.registration_year = registration_year;
+	public void setRegistrationYear(int registration_year) {
+		this.registrationYear = registration_year;
 	}
 
 	public String getMail() {
@@ -81,8 +83,15 @@ public class Student {
 		this.department = department;
 	}
 	
-	
-	
-	
+	/* Debug */
+	public void printDetails() {
+		String msg = id + " " + 
+				fullName + " " +
+				semester + " " +
+				registrationYear + " " +
+				mail + " " + 
+				department + "\n";
+		System.out.println(msg);
+	}
 
 }

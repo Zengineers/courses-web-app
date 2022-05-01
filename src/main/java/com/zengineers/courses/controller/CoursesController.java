@@ -16,14 +16,12 @@ import com.zengineers.courses.config.InstructorAuthentication;
 import com.zengineers.courses.model.Course;
 import com.zengineers.courses.model.Instructor;
 import com.zengineers.courses.service.CourseService;
-import com.zengineers.courses.service.StudentRegistrationService;
 
 @Controller
 @RequestMapping("/")
 public class CoursesController {
 	
 	private CourseService courseService;
-	private StudentRegistrationService studentRegistrationService;
 
 	public CoursesController(CourseService courseService) {
 		this.courseService = courseService;
@@ -69,7 +67,7 @@ public class CoursesController {
 	
 	@GetMapping("/courses/update")
 	public String updateCourse(@RequestParam("courseId") Long courseId, Model model) {
-		Course course = courseService.update(courseId);
+		Course course = courseService.findById(courseId);
 		model.addAttribute("courseForm", course);
 		return "add-update-course";
 	}

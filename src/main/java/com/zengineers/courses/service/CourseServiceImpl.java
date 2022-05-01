@@ -66,7 +66,7 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	@Transactional
-	public Course update(Long courseId) {
+	public Course findById(Long courseId) {
 		Course course = courseDAO.findById(courseId).get();
 		
 		if (course != null ) {
