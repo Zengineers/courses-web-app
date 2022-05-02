@@ -19,10 +19,6 @@ import lombok.AllArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class StudentRegistrationId implements Serializable {
-
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
 	
 	public StudentRegistrationId() {}
@@ -32,6 +28,27 @@ public class StudentRegistrationId implements Serializable {
 		this.courseId = courseId;
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this== o) return true;
+		if (o ==null|| getClass() != o.getClass()) return false;
+		
+		StudentRegistrationId that = (StudentRegistrationId) o;
+		
+		if (studentId !=null?!studentId.equals(that.studentId) : that.studentId !=null) return false;
+        if (courseId !=null?!courseId.equals(that.courseId) : that.courseId !=null) return false;
+        
+        return true;
+	}
+	
+	@Override
+    public int hashCode() {
+        int result;
+        result = (studentId !=null? studentId.hashCode() : 0);
+        result =31* result + (courseId !=null? courseId.hashCode() : 0);
+        return result;
+    }   
+    
 	@Column(name = "student_id", nullable = false)
 	private Long studentId;
 	

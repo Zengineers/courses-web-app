@@ -35,36 +35,34 @@
 			<table class="table table-bordered table-stripe" id="course-table">
 				<thead>
 					<tr>
-						<th>ID</th>
+						<th>Reg. Number</th>
 						<th>Full Name</th>
 						<th>Semester</th>
-						<th>Registration Year</th>
+						<th>Reg. Year</th>
 						<th>Mail</th>
 						<th>Department</th>
 						<th>Actions</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="student: ${students}">
-						<td th:text="${student?.id}"></td>
-						<td th:text="${student?.fullName}"></td>
-						<td th:text="${student?.semester}"></td>
-						<td th:text="${student?.registrationYear}"></td>
-						<td th:text="${student?.mail}"></td>
-						<td th:text="${student?.department}"></td> 
-						<td>
+						<tr th:each="studentReg: ${studentRegistrations}">
+							<td th:text="${studentReg?.student?.registrationNumber}"></td>
+							<td th:text="${studentReg?.student?.fullName}"></td>
+							<td th:text="${studentReg?.student?.semester}"></td>
+							<td th:text="${studentReg?.student?.registrationYear}"></td>
+							<td th:text="${studentReg?.student?.mail}"></td>
+							<td th:text="${studentReg?.student?.department}"></td> 
+							<td>
 						
-							<!-- TODO -->
 							<div class="row">
 								<div class="column">
-								<a th:href="@{/student-registrations/update(courseId=${course.id}, studentId=${student?.id})}" class="btn" data-tooltip="Update" >
+								<a th:href="@{/student-registrations/update(courseId=${course.id}, studentId=${studentReg?.student?.id})}" class="btn" data-tooltip="Update" >
 									<img th:src="@{/svg/update-btn.svg}" alt="SVG should be here..." class="img-btn"  />
 								</a>
 								</div>
 							
-								<!-- TODO  -->
 								<div class="column">
-								<a th:href="@{/courses}" class="btn" data-tooltip="Delete"
+								<a th:href="@{/student-registrations/delete(courseId=${course.id}, studentId=${studentReg?.student?.id})}" class="btn" data-tooltip="Delete"
 									onclick="if (!(confirm('Are you sure you want to delete this course?'))) return false">
 									 <img th:src="@{/svg/delete-btn.svg}" alt="SVG should be here..."  class="img-btn"/>
 								</a>  

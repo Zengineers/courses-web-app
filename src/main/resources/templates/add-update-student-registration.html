@@ -27,13 +27,17 @@
 	<h2 class="rufina header">Enter Student Details</h2>
 	<hr class="hr">
 
-	<form action="#" th:action="@{/student-registrations/save}" th:object="${studentRegistrationForm}" method="POST"><br>
- 		<input type="text" th:field="*{id}" placeholder="ID" class="form-control center inputField" />
+	<form action="#" th:action="@{/student-registrations/save(courseId=${courseId})}" th:object="${studentRegistrationForm.student}" method="POST"><br>
+		<input type="hidden" th:field="*{id}" />
+ 		<input type="number" th:field="*{registrationNumber}" placeholder="Registration Number" class="form-control center inputField" />
 		<input type="text" th:field="*{fullName}" placeholder="Full Name" class="form-control center inputField" />
 		<input type="number" th:field="*{semester}" placeholder="Semester" class="form-control center inputField" />
 		<input type="number" th:field="*{registrationYear}" placeholder="Registration Year" class="form-control center inputField" />
 		<input type="text" th:field="*{mail}" placeholder="Mail" class="form-control center inputField" />
 		<input type="text" th:field="*{department}" placeholder="Department" class="form-control center inputField" />
+		<div th:if="${studentRegistrationForm.violatesConstraintsInDatabase}" >
+	    	<p class="text-danger errorMessage">This Registration Number or Mail is already registered for this class</p>
+		</div>
 		<button class="btn btn-primary primaryButton center" type="submit" >Submit</button>
 	</form>
 	

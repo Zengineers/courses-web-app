@@ -8,8 +8,9 @@ import com.zengineers.courses.model.id.StudentRegistrationId;
 public interface StudentRegistrationService {
 	
 	public List<StudentRegistration> findRegistrationsByCourseId(int courseId);
-	public void delete(int studentId);
+	public void delete(StudentRegistrationId studentRegistrationId);
 	public void save(StudentRegistration studentRegistration);
 	public StudentRegistration findById(StudentRegistrationId studentRegistrationId);
+	public boolean existsByStudentId(Long studentId);
 }
 	

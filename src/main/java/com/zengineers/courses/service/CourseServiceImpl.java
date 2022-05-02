@@ -24,9 +24,7 @@ public class CourseServiceImpl implements CourseService {
 		this.courseDAO = courseDAO;
 	}
 	
-	public CourseServiceImpl() {
-		// TODO
-	}
+	public CourseServiceImpl() {}
 	
 	public List<StatisticStrategy> getStatCalculationStrategies() {
 		return statCalculationStrategies;

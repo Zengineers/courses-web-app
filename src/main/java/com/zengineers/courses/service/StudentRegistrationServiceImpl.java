@@ -27,15 +27,13 @@ public class StudentRegistrationServiceImpl implements StudentRegistrationServic
 	}
 
 	@Override
-	public void delete(int studentId) {
-		// TODO Auto-generated method stub
-		
+	public void delete(StudentRegistrationId studentRegistrationId) {
+		studentRegistrationDAO.deleteById(studentRegistrationId);
 	}
 
 	@Override
 	public void save(StudentRegistration studentRegistration) {
-		// TODO Auto-generated method stub
-		
+		studentRegistrationDAO.save(studentRegistration);
 	}
 
 	@Override
@@ -55,6 +53,11 @@ public class StudentRegistrationServiceImpl implements StudentRegistrationServic
 				" and student ID:" + 
 				studentRegistrationId.getStudentId();
 		throw new RuntimeException(exceptionMessage);
+	}
+
+	@Override
+	public boolean existsByStudentId(Long studentId) {
+		return studentRegistrationDAO.existsByStudentId(studentId);
 	}
 
 }

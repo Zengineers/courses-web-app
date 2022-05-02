@@ -52,8 +52,6 @@ public class Course {
 	@JoinColumn(name="instructor_id", referencedColumnName = "id")
 	private Instructor instructor;
 
-	// TODO Throws exception 
-	// look into: field access strategy
 	@OneToMany(targetEntity=StudentRegistration.class, mappedBy="course", fetch=FetchType.EAGER)
 	private List<StudentRegistration> studentRegistrations; 
 

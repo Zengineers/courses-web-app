@@ -2,6 +2,8 @@ package com.zengineers.courses.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -17,8 +19,12 @@ import lombok.NoArgsConstructor;
 public class Student {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id", nullable = false)
 	private Long id;
+	
+	@Column(name="registration_number", nullable=false, unique=true)
+	private int registrationNumber;
 	
 	@Column(name="full_name", nullable = false, unique = false, length = 55)
 	private String fullName;
@@ -41,6 +47,14 @@ public class Student {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public int getRegistrationNumber() {
+		return registrationNumber;
+	}
+
+	public void setRegistrationNumber(int registrationNumber) {
+		this.registrationNumber = registrationNumber;
 	}
 
 	public String getFullName() {

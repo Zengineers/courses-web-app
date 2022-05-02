@@ -7,6 +7,7 @@ import com.zengineers.courses.model.StudentRegistration;
 import com.zengineers.courses.model.id.StudentRegistrationId;
 
 @Repository
-public interface StudentRegistrationDAO extends JpaRepository<StudentRegistration, StudentRegistrationId>{
-
+public interface StudentRegistrationDAO extends JpaRepository<StudentRegistration, StudentRegistrationId> {
+	
+	public boolean existsByStudentId(Long studentId);
 }
