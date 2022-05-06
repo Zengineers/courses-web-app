@@ -45,7 +45,6 @@ public class StudentRegistrationsController {
 		model.addAttribute("studentRegistrations", studentRegistrations);
 
 		return "student-registrations";
-		
 	}
 	
 	@GetMapping("/student-registrations/add")
