@@ -10,5 +10,5 @@ public interface CourseService {
 	public List<Course> findAll();
 	public void delete(Long courseId);
  	public void save(Course course);
- 	public Course update(Long courseId);
+ 	public Course findById(Long courseId);
 }

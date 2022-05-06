@@ -31,7 +31,7 @@ public class CourseServiceTest {
 	private CourseService courseService;
 	
 	@Test
-	void testInstructorAuthenticationServiceIsNotNull() {
+	void testCourseServiceIsNotNull() {
 		Assertions.assertNotNull(courseService);
 	}
 	
@@ -56,6 +56,7 @@ public class CourseServiceTest {
 		
 		for (Course course : courses) {
 			assertThat(course.getInstructor().getId()).isEqualTo(instructorId);
+			Assertions.assertNotNull(course.getStudentRegistrations());
 		}
 	}
 	
@@ -71,9 +72,9 @@ public class CourseServiceTest {
 	}
 	
 	@ParameterizedTest
-	@CsvSource(value = {"11-MYY100-Databases-Introduction to Database Management Systems.-4-Winter-1",
-										"22-MYY101-Calculus I-Functions of one variable (monotonic, inverse, algebraic, logarithmic functions).-1-Winter-2",
-										"33-MYY102-Software Engineering-Best practices for software development.-4-Spring-1"}, 
+	@CsvSource(value = {"1-MYY100-Databases-Introduction to Database Management Systems.-4-Winter-1",
+										"2-MYY101-Calculus I-Functions of one variable (monotonic, inverse, algebraic, logarithmic functions).-1-Winter-2",
+										"3-MYY102-Software Engineering-Best practices for software development.-4-Spring-1"}, 
 							delimiter = '-')
 	@Transactional
 	void testSave(String id, String code, String name, String syllabus, String year, String semester, String instructorId) {
@@ -105,8 +106,8 @@ public class CourseServiceTest {
 										"3-MYY102-Software Engineering-Best practices for software development.-4-Spring-1"}, 
 							delimiter = '-')
 	@Transactional
-	void testUpdate(String id, String code, String name, String syllabus, String year, String semester, String instructorId) {
-		Course updatedCourse = courseService.update(Long.parseLong(id));
+	void testFindById(String id, String code, String name, String syllabus, String year, String semester, String instructorId) {
+		Course updatedCourse = courseService.findById(Long.parseLong(id));
 		
 		Assertions.assertNotNull(updatedCourse);
 		assertThat(updatedCourse.getId()).isEqualTo(Long.parseLong(id));

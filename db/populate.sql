@@ -21,7 +21,7 @@ VALUES
 
 -- Populate students
 INSERT INTO students 
-(id, full_name, semester, registration_year, mail, department)
+(registration_number, full_name, semester, registration_year, mail, department)
 VALUES
 (2641, 'Antoniou Chris', 8, 2020, 'ant@yahoo.com', 'Dept. Computer Science'),
 (2626, 'John John', 2, 2022, 'jj@gmail.com', 'Dept. Computer Science'),
@@ -33,7 +33,7 @@ VALUES
 INSERT INTO student_registrations 
 (student_id, course_id)
 VALUES
-(2641, 2),
-(2626, 1),  (2626, 2), (2626, 3),
-(3354, 1), (3354, 2),
-(2323, 1), (2323, 2), (2323, 3);
+(1, 2),
+(2, 1),  (2, 2), (2, 3),
+(3, 1), (3, 2),
+(4, 1), (4, 2), (4, 3);

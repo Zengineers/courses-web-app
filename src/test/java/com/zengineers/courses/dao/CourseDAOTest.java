@@ -44,6 +44,7 @@ public class CourseDAOTest {
 		
 		for (Course course : courses) {
 			assertThat(course.getInstructor().getId()).isEqualTo(instructorId);
+			Assertions.assertNotNull(course.getStudentRegistrations());
 		}
 	}
 
@@ -58,6 +59,5 @@ public class CourseDAOTest {
 						)
 				);
 	}
-
 	
 }

@@ -144,6 +144,129 @@
 		"Post-cond.": [
   			"The course information is successfully updated and displayed along with the rest of the instructor's courses on the browse courses page'."
   		]
-	}
+	},
 	
+	"Use Case: Instructor Browse Student Registrations":
+	{
+		"ID": "UC6",
+		"Actor(s)": "Instructor",
+		"Description": "This use case describes how an instructor browses the list of student registrations for a course he is teaching.",
+		"Pre-cond.": [
+			"1. Application successfully initialized and running on respective host.",
+			"2. Database initialized and running on respective host.",
+			"3. Application successfully connected to database.",
+			"4. Instructor successfully authenticated."
+		],
+		"Main Flow": [
+			"1. The use case starts when an authenticated instructor navigates or is redirected to the list students (student registrations) page for a course he is teaching.",
+			"2. The application fetches the course which contains its student registrations from the database.",
+			"3. The application displays the fetched student registrations including details (reg. number, full name, semester, reg. year, mail, department) for each student on the student registrations page."
+		],
+		"Post-cond.": [
+  			" - "
+  		]
+	},
+	
+	"Use Case: Instructor Add Student Registration":
+	{
+		"ID": "UC7",
+		"Actor(s)": "Instructor",
+		"Description": "This use case describes how an instructor adds a student registration for a course he is teaching.",
+		"Pre-cond.": [
+			"1. Application successfully initialized and running on respective host.",
+			"2. Database initialized and running on respective host.",
+			"3. Application successfully connected to database.",
+			"4. Instructor successfully authenticated.",
+			"5. Application displays the student registrations page."
+		],
+		"Main Flow": [
+			"1. The use case starts when an authenticated instructor clicks the \"Add Student\" button (on the list student registrations page).",
+			"2. The application redirects to the add student registration page.",
+			"3. The instructor enters the student details (reg. number, full name, semester, reg. year, mail, department).",
+			"4. The instructor clicks the \"Submit\" button.",
+			"5. The application inserts the new student registration to the database.",
+			" \t 5.1 If the student does not exist on the respective database table.",
+			" \t 5.2 The application inserts the new student on the respective database table.",
+			"6. The application redirects to the browse list student registrations page."
+		],
+		"Alternative Flow 1": [
+			"1. The alternative flow begins after step 2.",
+			"2. The instructor may click on the \"Back to Student Registrations\" button at any time.",
+			"3 The application redirects to the list student registrations page."
+		],
+		"Alternative Flow 2": [
+			"1. The alternative flow begins after step 4.",
+			"2. The application determines that the registration number or the mail entered by the instructor already exists in the database for a different student.",
+			"3. The application displays a \"This Registration Number or Mail is already registered for this class\" message."
+		],
+		"Post-cond.": [
+  			"The new student registration and student details are successfully added and displayed along with the rest of the student registrations for the selected course on the list student registrations page'."
+  		]
+	},
+	
+	"Use Case: Instructor Delete Student Registration": 
+	{
+		"ID": "UC8",
+		"Actor(s)": "Instructor",
+		"Description": "This use case describes how an instructor deletes a student registration for a course he is teaching.",
+		"Pre-cond.": [
+			"1. Application successfully initialized and running on respective host.",
+			"2. Database initialized and running on respective host.",
+			"3. Application successfully connected to database.",
+			"4. Instructor successfully authenticated.",
+			"5. Application displays the student registrations page."
+		],
+		"Main Flow": [
+			"1. The use case starts when an authenticated instructor clicks the \"Delete\" button for one of the displayed student registrations (on the list student registrations page).",
+			"2. The application displays a warning prompt asking \"Are you sure you want to delete this student?\".",
+			" \t 2.1 If the instructor clicks \"OK\" on the warning prompt.",
+			" \t 2.2 The application deletes the student registration from the database.",
+			" \t 2.2.1 If the selected student is not enrolled in any other course.",
+			" \t 2.2.2 The application deletes the student from the database."
+		],
+		"Alternative Flow": [
+			"1. The alternative flow begins after step 2.",
+			" \t 2.1 If the instructor clicks \"Cancel\" on the warning prompt.",
+			" \t 2.2 The application does not delete the student registration (or the student) from the database."
+		],
+		"Post-cond.": [
+  			"The student registration (and possibly student) is successfully deleted from the database and is no longer displayed along with the rest of the student registrations for the selected course on the list student registrations page'."
+  		]
+	},
+	
+	"Use Case: Instructor Update Student Registration":
+	{
+		"ID": "UC9",
+		"Actor(s)": "Instructor",
+		"Description": "This use case describes how an instructor updates a student registrations for a course he is teaching.",
+		"Pre-cond.": [
+			"1. Application successfully initialized and running on respective host.",
+			"2. Database initialized and running on respective host.",
+			"3. Application successfully connected to database.",
+			"4. Instructor successfully authenticated.",
+			"5. Application displays the student registrations page."
+		],
+		"Main Flow": [
+			"1. The use case starts when an authenticated instructor clicks the \"Update\" button for one of the displayed student registrations (on the list student registrations page).",
+			"2. The application redirects to the update student registration page.",
+			"3. The instructor enters the student details (reg. number, full name, semester, reg. year, mail, department).",
+			"4. The instructor clicks the \"Submit\" button.",
+			"5. The application updates the student registration and student information on the database.",
+			"6. The application redirects to the list student registrations page."
+		],
+		"Alternative Flow 1": [
+			"1. The alternative flow begins after step 2.",
+			"2. The instructor may click on the \"Back to Student Registrations\" button at any time.",
+			"3 The application redirects to the list student registrations page."
+		],
+		"Alternative Flow 2": [
+			"1. The alternative flow begins after step 4.",
+			"2. The application determines that the registration number or the mail entered by the instructor already exists in the database for a different student.",
+			"3. The application displays a \"This Registration Number or Mail is already registered for this class\" message."
+		],
+		"Post-cond.": [
+  			"The student registration and student information are successfully updated and displayed along with the rest of the student registrations for the selected course on the list student registrations page'."
+  		]
+	}
+		
 }

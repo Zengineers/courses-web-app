@@ -24,9 +24,7 @@ public class CourseServiceImpl implements CourseService {
 		this.courseDAO = courseDAO;
 	}
 	
-	public CourseServiceImpl() {
-		// TODO
-	}
+	public CourseServiceImpl() {}
 	
 	public List<StatisticStrategy> getStatCalculationStrategies() {
 		return statCalculationStrategies;
@@ -66,7 +64,7 @@ public class CourseServiceImpl implements CourseService {
 
 	@Override
 	@Transactional
-	public Course update(Long courseId) {
+	public Course findById(Long courseId) {
 		Course course = courseDAO.findById(courseId).get();
 		
 		if (course != null ) {

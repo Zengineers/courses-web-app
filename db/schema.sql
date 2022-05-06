@@ -26,7 +26,8 @@ CREATE TABLE courses (
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=latin1;
 
 CREATE TABLE students (
-	id BIGINT NOT NULL,
+	id BIGINT NOT NULL AUTO_INCREMENT,
+    registration_number INT UNIQUE NOT NULL,
     full_name VARCHAR(55) NOT NULL,
     semester INT,
     registration_year INT,
@@ -64,12 +65,24 @@ TRUNCATE students;
 TRUNCATE student_registrations;
 SET FOREIGN_KEY_CHECKS = 1;
 
+SET FOREIGN_KEY_CHECKS = 0;
 DROP TABLE instructors;
 DROP TABLE courses;
 DROP TABLE students;
 DROP TABLE student_registrations;
-
+SET FOREIGN_KEY_CHECKS = 1;
 
 
 DELETE FROM courses WHERE courses.id=1;
 DELETE FROM students WHERE students.id=2323;
+
+SELECT 
+students.id, 
+students.full_name,
+students.semester,
+students.registration_year,
+students.mail,
+students.department
+FROM student_registrations, students
+WHERE student_registrations.course_id = 1
+AND student_registrations.student_id = students.id;
