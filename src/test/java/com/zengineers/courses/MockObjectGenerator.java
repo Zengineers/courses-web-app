@@ -65,6 +65,8 @@ public class MockObjectGenerator {
 		studentReg.setStudentRegistrationId(studentRegId);
 		studentReg.setStudent(student);
 		studentReg.setCourse(course);
+		studentReg.setExamGrade(5.0);
+		studentReg.setProjectGrade(5.0);
 		return studentReg;
 	}
 	

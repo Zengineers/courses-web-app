@@ -9,5 +9,6 @@ public interface StudentService {
 	public Student findByRegistrationNumber(int registrationNumber);
 	public boolean existsByRegistrationNumber(int registrationNumber);
 	public Student searchForExistingStudent(Student student);
+	public Student findById(Long studentId);
 	
 }

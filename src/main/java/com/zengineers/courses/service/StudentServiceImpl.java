@@ -10,7 +10,7 @@ import com.zengineers.courses.model.Student;
 public class StudentServiceImpl implements StudentService {
 
 	@Autowired
-	StudentDAO studentDAO;
+	private StudentDAO studentDAO;
 	
 	public StudentServiceImpl(StudentDAO studentDAO) {
 		this.studentDAO = studentDAO;
@@ -47,6 +47,14 @@ public class StudentServiceImpl implements StudentService {
 			student.setId(existingStudent.getId());
 		}
 		return student;
+	}
+
+	@Override
+	public Student findById(Long studentId) {
+		Student student = studentDAO.findById(studentId).get();
+		
+		if (student != null ) return student;
+		throw new RuntimeException("Did not find student with id: " + studentId);
 	}
 	
 }

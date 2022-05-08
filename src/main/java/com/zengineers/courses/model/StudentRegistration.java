@@ -1,5 +1,6 @@
 package com.zengineers.courses.model;
 
+import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
@@ -35,6 +36,15 @@ public class StudentRegistration {
 	@ManyToOne
 	@JoinColumn(name="student_id", referencedColumnName = "id")
 	private Student student;
+	
+	@Column(name="project_grade")
+	private Double projectGrade;
+	
+	@Column(name="exam_grade")
+	private Double examGrade;
+	
+	@Column(name="total_grade")
+	private Double totalGrade;
 	
 	@Transient
 	private boolean violatesConstraintsInDatabase = false;
@@ -90,8 +100,46 @@ public class StudentRegistration {
 		return violatesConstraintsInDatabase;
 	}
 
+	public Double getProjectGrade() {
+		return projectGrade;
+	}
+
+	public void setProjectGrade(Double projectGrade) {
+		this.projectGrade = projectGrade;
+	}
+
+	public Double getExamGrade() {
+		return examGrade;
+	}
+
+	public void setExamGrade(Double examGrade) {
+		this.examGrade = examGrade;
+	}
+
+	public Double getTotalGrade() {
+		return totalGrade;
+	}
+
+	public void setTotalGrade(Double totalGrade) {
+		this.totalGrade = totalGrade;
+	}
+
+	public boolean isViolatesConstraintsInDatabase() {
+		return violatesConstraintsInDatabase;
+	}
+	
 	public void setViolatesConstraintsInDatabase(boolean violatesConstraintsInDatabase) {
 		this.violatesConstraintsInDatabase = violatesConstraintsInDatabase;
+	}
+	
+	// potential TODO - brainstorming
+	// add projectGrade and examGrade weight values
+	// (instead of the currently hard-coded ones)
+	// which the instructor can specify
+	public void computeTotalGrade() {
+		if (examGrade == null || projectGrade == null) return;
+		if (examGrade.isNaN() || projectGrade.isNaN() ) return;
+		this.totalGrade = projectGrade*0.3 + examGrade*0.7;
 	}
 
 	/* Debug */

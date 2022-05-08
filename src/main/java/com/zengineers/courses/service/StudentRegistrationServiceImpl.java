@@ -14,7 +14,7 @@ import com.zengineers.courses.model.id.StudentRegistrationId;
 public class StudentRegistrationServiceImpl implements StudentRegistrationService {
 
 	@Autowired
-	StudentRegistrationDAO studentRegistrationDAO;
+	private StudentRegistrationDAO studentRegistrationDAO;
 	
 	public StudentRegistrationServiceImpl(StudentRegistrationDAO studentRegistrationDAO) {
 		this.studentRegistrationDAO = studentRegistrationDAO;
