@@ -28,7 +28,7 @@
 	<h2 th:utext="'Student Registrations for ' + ${course.code}" class="rufina header"></h2>
 	<hr class="hr">
 			<a th:href="@{/student-registrations/add(courseId=${course.id})}" class="btn btn-primary mb-2 mr-4 primaryButton">Add Student</a>
-			<a th:href="@{/courses}" class="btn btn-primary mb-2 mr-4 primaryButton">View Grades</a>
+			<a th:href="@{/student-grades(courseId=${course.id})}" class="btn btn-primary mb-2 mr-4 primaryButton">View Grades</a>
 			
 			<img th:src="@{/svg/zengineer_1.svg}" alt="SVG should be here..." class="zengineersSvg"/>
 			

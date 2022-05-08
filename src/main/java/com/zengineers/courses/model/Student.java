@@ -23,7 +23,7 @@ public class Student {
 	@Column(name="id", nullable = false)
 	private Long id;
 	
-	@Column(name="registration_number", nullable=false, unique=true)
+	@Column(name="registration_number", nullable = false, unique = true)
 	private int registrationNumber;
 	
 	@Column(name="full_name", nullable = false, unique = false, length = 55)

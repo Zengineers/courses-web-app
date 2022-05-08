@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	
+	<title>Student Grades</title>
+	
+	<!-- Bootstrap 4 -->
+	<link rel="stylesheet" 
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" 
+	crossorigin="anonymous">
+	
+	<!-- Let the page adapt to client device -->
+  	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta charset="UTF-8">
+	
+	<!-- Add header icon link -->
+	<link rel = "icon" 
+	href ="https://avanti.org.uk/avantihouse-secondary/wp-content/uploads/sites/10/revslider/fullwidth_avada_video_slider1/AST-Crest-Small.png"  
+	type = "image/x-icon">
+	  
+	<link href="/css/courses-styles.css" rel="stylesheet">
+	
+</head>
+
+<body>
+	<div class="container">
+	<h2 th:utext="'Student Grades for ' + ${course.code}" class="rufina header"></h2>
+	<hr class="hr">			
+			<a th:href="@{/student-grades/get-total-grades(courseId=${course.id})}" class="btn btn-primary mb-2 mr-4 primaryButton">Get Total Grades</a> 
+			<a th:href="@{/student-grades(courseId=${course.id})}" class="btn btn-primary mb-2 mr-4 primaryButton" >Get Statistics</a>
+			
+			<img th:src="@{/svg/zengineer_1.svg}" alt="SVG should be here..." class="zengineersSvg"/>
+			
+			<table class="table table-bordered table-stripe" id="course-table">
+				<thead>
+					<tr>
+						<th>Reg. Number</th>
+						<th>Full Name</th>
+						<th>Project </th>
+						<th>Final Exam</th>
+						<th>Total Grade</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+						<tr th:each="studentReg: ${studentRegistrations}">
+							<td th:text="${studentReg?.student?.registrationNumber}"></td>
+							<td th:text="${studentReg?.student?.fullName}"></td>
+							<td th:text="${studentReg?.projectGrade}"></td>
+							<td th:text="${studentReg?.examGrade}"></td>
+							<td th:text="${studentReg?.totalGrade}"></td>
+							<td>
+						
+							<div class="row">
+								<div class="column">
+								<a th:href="@{/student-grades/update(courseId=${course.id}, studentId=${studentReg?.student?.id})}" class="btn" data-tooltip="Add Grades" >
+									<img th:src="@{/svg/add-btn.svg}" alt="SVG should be here..." class="img-btn"  />
+								</a>
+								</div>
+							</div> 
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		<hr class="hr">
+		<a th:href="@{/student-registrations(courseId=${course.id})}" class="center back rufina">Back to Student Registrations</a>
+	</div>
+
+</body>
+</html>
