@@ -128,6 +128,22 @@ public class StudentServiceTest {
 		assertThat(student.getDepartment()).isEqualTo(expectedStudent.getDepartment());
 	}
 	
+	@ParameterizedTest
+	@MethodSource("generateMockStudents")
+	void testFindById(Student expectedStudent) {
+		Student student = studentService.findById(expectedStudent.getId());
+		
+		Assertions.assertNotNull(student);
+		assertThat(student.equals(expectedStudent));
+		assertThat(student.getId()).isEqualTo(expectedStudent.getId());
+		assertThat(student.getRegistrationNumber()).isEqualTo(expectedStudent.getRegistrationNumber());
+		assertThat(student.getFullName()).isEqualTo(expectedStudent.getFullName());
+		assertThat(student.getSemester()).isEqualTo(expectedStudent.getSemester());
+		assertThat(student.getRegistrationYear()).isEqualTo(expectedStudent.getRegistrationYear());
+		assertThat(student.getMail()).isEqualTo(expectedStudent.getMail());
+		assertThat(student.getDepartment()).isEqualTo(expectedStudent.getDepartment());
+	}
+	
 	static Stream<Arguments> generateMockStudents() {
 		return Stream.of(
 				Arguments.of(createMockStudent(1L, 2641, "Antoniou Chris", 8, 2020, "ant@yahoo.com", "Dept. Computer Science")),
