@@ -52,7 +52,22 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(final HttpSecurity http) throws Exception {
     	// These pages require authentication to access
-    	String[] antPatterns = {"/courses", "/", "/courses/add"};
+    	String[] antPatterns = {
+    			"/courses", "/", 
+    			"/courses/add", 
+    			"/courses/save", 
+    			"/courses/delete", 
+    			"/courses/update",
+    			"/student-registrations", 
+    			"/student-registrations/add", 
+    			"/student-registrations/update", 
+    			"/student-registrations/save",
+    			"/student-registrations/delete",
+    			"/student-grades", 
+    			"/student-grades/get-total-grades", 
+    			"/student-grades/update", 
+    			"/student-grades/save"
+    			};
     	
     	http.authorizeRequests()
     		.antMatchers(antPatterns).authenticated()  

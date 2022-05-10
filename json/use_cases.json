@@ -267,6 +267,82 @@
 		"Post-cond.": [
   			"The student registration and student information are successfully updated and displayed along with the rest of the student registrations for the selected course on the list student registrations page'."
   		]
+	},
+	
+	"Use Case: Instructor Browse Students Grades":
+	{
+		"ID": "UC6-BONUS",
+		"Actor(s)": "Instructor",
+		"Description": "This use case describes how an instructor browses the list of student grades for a course he is teaching.",
+		"Pre-cond.": [
+			"1. Application successfully initialized and running on respective host.",
+			"2. Database initialized and running on respective host.",
+			"3. Application successfully connected to database.",
+			"4. Instructor successfully authenticated."
+		],
+		"Main Flow": [
+			"1. The use case starts when an authenticated instructor navigates to (by clicking on the \"View Grades\" button on the list student registrations page) or is redirected to the list student grades page for a course he is teaching.",
+			"2. The application fetches the course from the database which contains its student registrations which in turn contain the grades for each student.",
+			"3. The application displays the fetched student grades along with student full name and student reg. number for each student on the student grades page."
+		],
+		"Post-cond.": [
+  			" - "
+  		]
+	},
+	
+	"Use Case: Instructor Register Student Grades":
+	{
+		"ID": "UC10",
+		"Actor(s)": "Instructor",
+		"Description": "This use case describes how an instructor registers grades for a student that is enrolled in a course he is teaching.",
+		"Pre-cond.": [
+			"1. Application successfully initialized and running on respective host.",
+			"2. Database initialized and running on respective host.",
+			"3. Application successfully connected to database.",
+			"4. Instructor successfully authenticated.",
+			"5. Application displays the student grades page."
+		],
+		"Main Flow": [
+			"1. The use case starts when an authenticated instructor clicks the \"Add Grades\" image button for one of the displayed students (on the list student grades page).",
+			"2. The application redirects to the update student grades page.",
+			"3. The instructor enters the student's project grade and exam grade.",
+			"4. The instructor clicks the \"Submit\" button.",
+			"5. The application updates the student grades on the database.",
+			"6. The application redirects to the list student grades page."
+		],
+		"Alternative Flow 1": [
+			"1. The alternative flow begins after step 2.",
+			"2. The instructor may click on the \"Back to Student Grades\" button at any time.",
+			"3 The application redirects to the list student grades page."
+		],
+		"Post-cond.": [
+  			"The student grades are successfully updated and displayed along with the rest of the student grades for the selected course on the list student grades page'."
+  		]
+	},
+	
+		"Use Case: Instructor Calculate Overall Student Grades":
+	{
+		"ID": "UC11",
+		"Actor(s)": "Instructor",
+		"Description": "This use case describes how an instructor calculates overall grades for all the students that are enrolled in a course he is teaching.",
+		"Pre-cond.": [
+			"1. Application successfully initialized and running on respective host.",
+			"2. Database initialized and running on respective host.",
+			"3. Application successfully connected to database.",
+			"4. Instructor successfully authenticated.",
+			"5. Application displays the student grades page."
+		],
+		"Main Flow": [
+			"1. The use case starts when an authenticated instructor clicks the \"Get Total Grades\" on the list student grades page.",
+			"2. The application iterates over all the registered students in the course.",
+			" \t 2.1 If the current students' project grade and exam grade fields contain valid numbers.'",
+			" \t 2.2 The application computes the students' total grade using the project grade and exam grade with respect to a weighted average.",
+			"3. The application saves the total grade to the database for each student.",
+			"4. The application redirects to the list student grades page."
+		],
+		"Post-cond.": [
+  			"The total grades are successfully calculated, saved and displayed on the list student grades page'."
+  		]
 	}
 		
 }

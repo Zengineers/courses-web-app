@@ -26,13 +26,11 @@ public class StudentRegistration {
 	private StudentRegistrationId studentRegistrationId = new StudentRegistrationId();
 	
 	@MapsId("courseId")
-//	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
 	@ManyToOne
 	@JoinColumn(name="course_id", referencedColumnName = "id")
 	private Course course;
 	
 	@MapsId("studentId")
-//	@ManyToOne(cascade= {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
 	@ManyToOne
 	@JoinColumn(name="student_id", referencedColumnName = "id")
 	private Student student;
@@ -133,7 +131,7 @@ public class StudentRegistration {
 	}
 	
 	// potential TODO - brainstorming
-	// add projectGrade and examGrade weight values
+	// add projectGrade and examGrade weight values as fields
 	// (instead of the currently hard-coded ones)
 	// which the instructor can specify
 	public void computeTotalGrade() {

@@ -15,7 +15,6 @@ import com.zengineers.courses.service.statistics.StatisticStrategy;
 public class CourseServiceImpl implements CourseService {
 
 	@Autowired
-//	@Qualifier("CourseDAOImpl")
 	private CourseDAO courseDAO;
 	private List<StatisticStrategy> statCalculationStrategies;
 	

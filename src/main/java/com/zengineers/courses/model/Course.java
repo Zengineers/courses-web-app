@@ -130,12 +130,4 @@ public class Course {
 		this.studentRegistrations = studentRegistrations;
 	}
 	
-	public List<Student> getStudents() {
-		List<Student> students = new ArrayList<Student>();
-		for (StudentRegistration studentRegistration : studentRegistrations) {
-			students.add(studentRegistration.getStudent());
-		}
-		return students;
-	}
-	
 }

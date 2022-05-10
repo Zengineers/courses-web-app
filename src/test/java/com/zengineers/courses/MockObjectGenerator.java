@@ -1,12 +1,5 @@
 package com.zengineers.courses;
 
-import static com.zengineers.courses.MockObjectGenerator.createMockCourse;
-import static com.zengineers.courses.MockObjectGenerator.createMockStudent;
-import static com.zengineers.courses.MockObjectGenerator.createMockStudentRegistration;
-
-import java.util.stream.Stream;
-
-import org.junit.jupiter.params.provider.Arguments;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 

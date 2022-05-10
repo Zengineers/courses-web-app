@@ -15,7 +15,7 @@ public abstract class TemplateStatisticStrategy implements StatisticStrategy {
 		return 0;
 	}
 	
-	private void prepareDataSet(){
+	private void prepareDataSet() {
 		// TODO	
 	}
 	
