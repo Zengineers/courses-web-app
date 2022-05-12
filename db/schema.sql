@@ -1,5 +1,4 @@
 -- Courses App Database Schema
--- This is a prototype and subject to changes
 
 CREATE DATABASE coursesapp;
 USE coursesapp;
@@ -48,15 +47,11 @@ create table student_registrations (
     FOREIGN KEY (course_id) REFERENCES courses(id)
     ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 -- Courses App Database Schema END
 
 
 -- Temp SQL Queries (should be deleted at some point)
-SELECT * FROM instructors;
-SELECT * FROM courses;
-SELECT * FROM students;
-SELECT * FROM student_registrations;
-
 
 SET FOREIGN_KEY_CHECKS = 0;
 TRUNCATE instructors;
@@ -71,18 +66,3 @@ DROP TABLE courses;
 DROP TABLE students;
 DROP TABLE student_registrations;
 SET FOREIGN_KEY_CHECKS = 1;
-
-
-DELETE FROM courses WHERE courses.id=1;
-DELETE FROM students WHERE students.id=2323;
-
-SELECT 
-students.id, 
-students.full_name,
-students.semester,
-students.registration_year,
-students.mail,
-students.department
-FROM student_registrations, students
-WHERE student_registrations.course_id = 1
-AND student_registrations.student_id = students.id;

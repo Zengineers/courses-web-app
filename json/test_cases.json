@@ -1,0 +1,206 @@
+[
+    {
+        "": {
+            "ID": "T1_V0",
+            "Test Class": "CoursesControllerTest",
+            "Description": "Tests http request mapping regarding the Course Domain Model",
+            "Pre-cond.": "Mock application successfully setup",
+            "Input": "No input required",
+            "Output": "No output generated",
+            "Post-cond.": "Application transitioned to expected views",
+            "Class under test": "CoursesController",
+            "Method(s) under test": [
+            	"1. listCourses",
+            	"2. addCourse",
+            	"3. saveCourse",
+            	"4. delete",
+            	"5. updateCourse"
+            	]
+            }
+    },
+    {
+        "": {
+            "ID": "T2_V0",
+            "Test Class": "LoginControllerTest",
+            "Description": "Tests http request mapping regarding user authentication",
+            "Pre-cond.": "Mock application successfully setup",
+            "Input": "No input required",
+            "Output": "No output generated",
+            "Post-cond.": "Application transitioned to expected view",
+            "Class under test": "LoginController",
+            "Method(s) under test": [
+            	"1. showLoginPage"
+            	]
+            }
+    },
+    {
+        "": {
+            "ID": "T3_V0",
+            "Test Class": "StudentGradesControllerTest",
+            "Description": "Tests http request mapping regarding student grades fields of the StudentRegistration Domain Model",
+            "Pre-cond.": "Mock application successfully setup",
+            "Input": "Mock StudentRegistration, including Student and Course objects and studentId and courseId",
+            "Output": "No output generated",
+            "Post-cond.": "Application transitioned to expected views",
+            "Class under test": "StudentGradesController",
+            "Method(s) under test": [
+            	"1. listStudentGrades",
+            	"2. computeTotalGrades",
+            	"3. updateStudentGrades",
+            	"4. saveStudentGrades"
+            	]
+            }
+    },
+    {
+        "": {
+            "ID": "T4_V0",
+            "Test Class": "StudentRegistrationsControllerTest",
+            "Description": "Tests http request mapping regarding the StudentRegistration Domain Model",
+            "Pre-cond.": "Mock application successfully setup",
+            "Input": "Mock StudentRegistration, including Student and Course objects and studentId and courseId",
+            "Output": "No output generated",
+            "Post-cond.": "Application transitioned to expected views",
+            "Class under test": "StudentRegistrationsController",
+            "Method(s) under test": [
+            	"1. listStudentRegistrations",
+            	"2. addStudentRegistration",
+            	"3. updateStudentRegistration",
+            	"4. saveStudentRegistration",
+            	"5. delete"
+            	]
+            }
+    },
+    {
+        "": {
+            "ID": "T5_V0",
+            "Test Class": "CourseDAOTest",
+            "Description": "Tests MySQL courses table row data mapping to Course Domain Objects",
+            "Pre-cond.": "Database running",
+            "Input": "List of mock Course objects which correspond to the courses an instructor is teaching",
+            "Output": "No output generated",
+            "Post-cond.": "Application fetched correct data from the database",
+            "Class under test": "CourseDAO",
+            "Method(s) under test": [
+            	"1. findCoursesByInstructorId"
+            	]
+            }
+    },
+    {
+        "": {
+            "ID": "T6_V0",
+            "Test Class": "InstructorDAOTest",
+            "Description": "Tests MySQL instructors table row data mapping to Instructor Domain Objects",
+            "Pre-cond.": "Database running",
+            "Input": "Instructor information",
+            "Output": "No output generated",
+            "Post-cond.": "Application fetched correct data from the database",
+            "Class under test": "InstructorDAO",
+            "Method(s) under test": [
+            	"1. findByUsername"
+            	]
+            }
+    },
+    {
+        "": {
+            "ID": "T7_V0",
+            "Test Class": "StudentDAOTest",
+            "Description": "Tests MySQL students table row data mapping to Student Domain Objects",
+            "Pre-cond.": "Database running",
+            "Input": "Mock Student object",
+            "Output": "No output generated",
+            "Post-cond.": "Application fetched correct data from the database",
+            "Class under test": "StudentDAO",
+            "Method(s) under test": [
+            	"1. findByRegistrationNumber",
+            	"2. existsByRegistrationNumber"
+            	]
+            }
+    },
+    {
+        "": {
+            "ID": "T8_V0",
+            "Test Class": "StudentRegistrationDAOTest",
+            "Description": "Tests MySQL student_registrations table row data mapping to StudentRegistration Domain Objects",
+            "Pre-cond.": "Database running",
+            "Input": "StudentId",
+            "Output": "No output generated",
+            "Post-cond.": "Application fetched correct data from the database",
+            "Class under test": "StudentRegistrationDAO",
+            "Method(s) under test": [
+            	"1. existsByStudentId"
+        		]
+            }
+    },
+    {
+        "": {
+            "ID": "T9_V0",
+            "Test Class": "CourseServiceTest",
+            "Description": "Tests operations of the services that are provided by the application to the users regarding the Course Domain Model",
+            "Pre-cond.": "Database running",
+            "Input": "List of mock Course objects which correspond to the courses an instructor is teaching",
+            "Output": "No output generated",
+            "Post-cond.": "No post-condition specified",
+            "Class under test": "CourseService",
+            "Method(s) under test": [
+            	"1. findAll",
+            	"2. findCoursesByInstructorId",
+            	"3. delete",
+            	"4. save",
+            	"5. findById"
+        		]
+            }
+    },
+    {
+        "": {
+            "ID": "T10_V0",
+            "Test Class": "InstructorAuthenticationServiceTest",
+            "Description": "Tests operations of the services regarding authentication to an Instructor user",
+            "Pre-cond.": "Database running",
+            "Input": "Instructor username and (encrypted) password",
+            "Output": "No output generated",
+            "Post-cond.": "Instructor user successfuly authenticated or rejected due to bad credentials",
+            "Class under test": "InstructorAuthenticationService",
+            "Method(s) under test": [
+            	"1. loadUserByUsername"
+        		]
+            }
+    },
+    {
+        "": {
+            "ID": "T11_V0",
+            "Test Class": "StudentRegistrationServiceTest",
+            "Description": "Tests operations of the services hat are provided by the application to the users regarding the StudentRegistration Domain Model",
+            "Pre-cond.": "Database running",
+            "Input": "Mock StudentRegistration object which includes Student and Course objects",
+            "Output": "No output generated",
+            "Post-cond.": "No post-condition specified",
+            "Class under test": "StudentRegistrationService",
+            "Method(s) under test": [
+            	"1. findById",
+            	"2. existsByStudentId",
+            	"3. save",
+            	"4. delete"
+        		]
+            }
+    },
+        {
+        "": {
+            "ID": "T12_V0",
+            "Test Class": "StudentServiceTest",
+            "Description": "Tests operations of the services hat are provided by the application to the users regarding the Student Domain Model",
+            "Pre-cond.": "Database running",
+            "Input": "Mock Student objects",
+            "Output": "No output generated",
+            "Post-cond.": "No post-condition specified",
+            "Class under test": "StudentService",
+            "Method(s) under test": [
+            	"1. existsByRegistrationNumber",
+            	"2. findByRegistrationNumber",
+            	"3. save",
+            	"4. delete",
+            	"5. searchForExistingStudent",
+            	"6. findById"
+        		]
+            }
+    }
+]

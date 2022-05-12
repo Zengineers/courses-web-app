@@ -1,0 +1,273 @@
+[
+  {
+    "name": "CoursesController",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Map http requests regarding the Course Domain Model to respective pages"
+    ],
+    "collaborators": [
+      "CourseService"
+    ]
+  },
+  {
+    "name": "LoginController",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Map http requests regarding user authentication to respective pages"
+    ],
+    "collaborators": [
+      "-"
+    ]
+  },
+  {
+    "name": "StudentGradesController",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Map http requests regarding the Student Grades field of the StudentRegistration DomainModel to respective pages"
+    ],
+    "collaborators": [
+      "StudentRegistrationService",
+      "CourseService",
+      "StudentService",
+      ""
+    ]
+  },
+  {
+    "name": "StudentRegistrationsController",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Map http requests regarding the StudentRegistration Domain Model to respective pages"
+    ],
+    "collaborators": [
+      "StudentRegistrationService",
+      "CourseService",
+      "StudentService"
+    ]
+  },
+  {
+    "name": "InstructorAuthentication",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Grant authentication to an Instructor user"
+    ],
+    "collaborators": [
+      "Instructor"
+    ]
+  },
+  {
+    "name": "WebSecurityConfig",
+    "superclasses": "WebSecurityConfigurerAdapter",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Defines pages that require user authentication to access"
+    ],
+    "collaborators": [
+      "-"
+    ]
+  },
+  {
+    "name": "CourseDAO",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 3,
+    "responsibilities": [
+      "Maps Course Domain Objects to the MySQL courses table row data"
+    ],
+    "collaborators": [
+      "Course",
+      ""
+    ]
+  },
+  {
+    "name": "InstructorDAO",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 3,
+    "responsibilities": [
+      "Maps Instructor Domain Objects to the MySQL instructors table row data"
+    ],
+    "collaborators": [
+      "Instructor",
+      ""
+    ]
+  },
+  {
+    "name": "StudentDAO",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 3,
+    "responsibilities": [
+      "Maps Student Domain Objects to the MySQL students table row data"
+    ],
+    "collaborators": [
+      "Student"
+    ]
+  },
+  {
+    "name": "StudentRegistrationDAO",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 3,
+    "responsibilities": [
+      "Maps StudentRegistration Domain Objects to the MySQL student_registrations table row data"
+    ],
+    "collaborators": [
+      "StudentRegistration"
+    ]
+  },
+  {
+    "name": "Course",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Defines the data representation for the MySQL courses table row data"
+    ],
+    "collaborators": [
+      "-"
+    ]
+  },
+  {
+    "name": "Instructor",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Defines the data representation for the MySQL instructors table row data"
+    ],
+    "collaborators": [
+      "-"
+    ]
+  },
+  {
+    "name": "Student",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Defines the data representation for the MySQL students table row data"
+    ],
+    "collaborators": [
+      "-"
+    ]
+  },
+  {
+    "name": "StudentRegistration",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Defines the data representation for the MySQL student_registrations table row data"
+    ],
+    "collaborators": [
+      "-"
+    ]
+  },
+  {
+    "name": "StudentRegistrationId",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Defines the data representation for the composite primary key of the MySQL student_registrations table row data"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "CourseService",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 3,
+    "responsibilities": [
+      "Defines the operations of the services that are provided by the application to the users regarding the Course Domain Model"
+    ],
+    "collaborators": [
+      "-"
+    ]
+  },
+  {
+    "name": "CourseServiceImpl",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Contains an implementation of the operations of the services that are provided by the application to the users regarding the Course Domain Model"
+    ],
+    "collaborators": [
+      "CourseDAO"
+    ]
+  },
+  {
+    "name": "InstructorAuthenticationService",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Implements the operations of the services regarding authentication to an Instructor user"
+    ],
+    "collaborators": [
+      "InstructorDAO"
+    ]
+  },
+  {
+    "name": "StudentRegistrationService",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 3,
+    "responsibilities": [
+      "Defines the operations of the services that are provided by the application to the users regarding the StudentRegistration Domain Model"
+    ],
+    "collaborators": [
+      "-"
+    ]
+  },
+  {
+    "name": "StudentRegistrationServiceImpl",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Contains an implementation of the operations of the services that are provided by the application to the users regarding the StudentRegistration Domain Model"
+    ],
+    "collaborators": [
+      "StudentRegistrationDAO"
+    ]
+  },
+  {
+    "name": "StudentService",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 3,
+    "responsibilities": [
+      "Defines the operations of the services that are provided by the application to the users regarding the Student Domain Model"
+    ],
+    "collaborators": [
+      ""
+    ]
+  },
+  {
+    "name": "StudentServiceImpl",
+    "superclasses": "",
+    "subclasses": "",
+    "type": 1,
+    "responsibilities": [
+      "Contains an implementation of the operations of the services that are provided by the application to the users regarding the Student Domain Model"
+    ],
+    "collaborators": [
+      "StudentDAO"
+    ]
+  }
+]

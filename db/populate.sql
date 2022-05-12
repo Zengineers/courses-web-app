@@ -9,7 +9,6 @@ VALUES
 -- password "pass1" is externally encrypted to the above
 
 
-
 -- Populate courses
 INSERT INTO courses 
 (code, name, syllabus, year, semester, instructor_id)
