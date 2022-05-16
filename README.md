@@ -12,7 +12,7 @@ The objective of the project was to develop a Web App that allows an instructor 
 ## Technologies
 
 This section contains a brief overview of the technologies used:
-*	[MySQL](https://www.mysql.com/) & [MySQL Workbench](https://www.mysql.com/products/workbench/) as a database and DBMS respectively.
+*	[MySQL](https://www.mysql.com/) & [MySQL Workbench](https://www.mysql.com/products/workbench/) as a DBMS and database visual tool respectively.
 *	[GitHub](https://github.com/) for version control. Project repo [here](https://github.com/Zengineers/courses-web-app).
 *	[Trello](https://trello.com/) for project management and team organization. Project board [here](https://trello.com/b/aYWeaLxz/zengineers-coursesmanagementapp). The project board contains cards with the user stories and any other task regarding the implementation of the project as well as various useful information in the form of links we came across during the development process.
 *	[Figma](https://www.figma.com/) as an application wireframe design tool. All the application’s pages were first designed here along with a rough sketch of their navigation functionality. Later, the Figma wireframe was used as a guideline to design the actual application using CSS and HTML. Wireframe link [here](https://www.figma.com/file/PYsLldOQx0acj7uvoIks2C/Courses-Management-App-Wireframe?node-id=0%3A1). A presentation can be instantiated by clicking on the present button on the top right.
