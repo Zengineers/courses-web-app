@@ -1,6 +1,6 @@
 # Courses Management Web Application
  
- Courses is Spring Boot Java Web App developed during the [Software Engineering](https://www.cs.uoi.gr/course/software-engineering/?lang=en) course [@cse.uoi.gr](https://www.cs.uoi.gr/).<br><br>
+ Courses is a Spring Boot Java Web App developed during the [Software Engineering](https://www.cs.uoi.gr/course/software-engineering/?lang=en) course [@cse.uoi.gr](https://www.cs.uoi.gr/).<br><br>
 
 
 ## Summary
