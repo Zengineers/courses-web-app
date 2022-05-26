@@ -50,6 +50,21 @@ Alternatively, the application can also be imported into Eclipse IDE as a Maven 
 
 <br>
 
+## Demo Images
+
+- Courses page - Displays the courses the authenticated instructor is teaching
+  ![](/demo/images/courses.png)
+  <br>
+
+- Add/Update course page - A selected couse is updated with the specified info
+  ![](/demo/images/addCourse.png)
+  <br>
+
+- Student Registrations page -  Displays the students enrolled in the selected course
+  ![](/demo/images/studentRegistrations.png)
+  <br>
+
+
 ## Credits
 
 <p align="center">
